@@ -77,6 +77,13 @@ const router = createRouter({
       path: "/create-realm",
       component: () => import("./views/realms/RealmEdit.vue"),
     },
+    // Wishes
+    {
+      name: "WishView",
+      path: "/wishes/:id",
+      component: () => import("./views/WishView.vue"),
+      meta: { isPublic: true },
+    },
     // NotFound
     {
       name: "NotFound",

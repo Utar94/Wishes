@@ -40,7 +40,8 @@
   "general": "General",
   "home": {
     "clickMe": "Click Me! ({count})",
-    "title": "Home"
+    "title": "Home",
+    "viewDetail": "View detail"
   },
   "loading": "Loading...",
   "locale": {

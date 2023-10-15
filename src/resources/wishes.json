@@ -5,8 +5,8 @@
       "xs": "https://wishes.blob.core.windows.net/img/essoreuse-salade-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/essoreuse-salade.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Essoreuse à salade"
   },
   {
@@ -15,18 +15,18 @@
       "xs": "https://wishes.blob.core.windows.net/img/coffee-cups-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/coffee-cups.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Tasses à café"
   },
   {
     "id": "game-master-books",
     "pictures": {
-      "xs": "https://wishes.blob.core.windows.net/img/game-master-books-400.png",
-      "original": "https://wishes.blob.core.windows.net/img/game-master-books.png"
+      "xs": "https://wishes.blob.core.windows.net/img/game-master-books-400.jpg",
+      "original": "https://wishes.blob.core.windows.net/img/game-master-books.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Livres du maître de jeu"
   },
   {
@@ -35,8 +35,8 @@
       "xs": "https://wishes.blob.core.windows.net/img/super-mario-bros-wonder-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/super-mario-bros-wonder.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Super Mario Bros Wonder"
   },
   {
@@ -45,8 +45,8 @@
       "xs": "https://wishes.blob.core.windows.net/img/coffee-beans-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/coffee-beans.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Grains de café spécialité"
   },
   {
@@ -55,8 +55,8 @@
       "xs": "https://wishes.blob.core.windows.net/img/joy-con-comfort-grip-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/joy-con-comfort-grip.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Joy-Con Comfort Grip"
   },
   {
@@ -65,8 +65,8 @@
       "xs": "https://wishes.blob.core.windows.net/img/socks-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/socks.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Bas"
   },
   {
@@ -75,8 +75,8 @@
       "xs": "https://wishes.blob.core.windows.net/img/pyjama-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/pyjama.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Pyjamas"
   },
   {
@@ -85,8 +85,8 @@
       "xs": "https://wishes.blob.core.windows.net/img/serviette-de-plage-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/serviette-de-plage.jpg"
     },
-    "subtitle": "",
-    "text": "",
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
     "title": "Serviette de plage"
   },
   {
@@ -95,8 +95,18 @@
       "xs": "https://wishes.blob.core.windows.net/img/sirius-400.jpg",
       "original": "https://wishes.blob.core.windows.net/img/sirius.jpg"
     },
-    "subtitle": "",
-    "text": "",
-    "title": "Accessoires pour chiens"
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
+    "title": "Accessoires pour Sirius"
+  },
+  {
+    "id": "sortilege-prestige",
+    "pictures": {
+      "xs": "https://wishes.blob.core.windows.net/img/sortilege-prestige-400.png",
+      "original": "https://wishes.blob.core.windows.net/img/sortilege-prestige.png"
+    },
+    "subtitle": "Sous-titre...",
+    "summary": "Résumé",
+    "title": "Sortilège Prestige"
   }
 ]
