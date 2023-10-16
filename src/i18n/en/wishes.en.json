@@ -1,5 +1,6 @@
 {
   "externalLinks": "External Links",
+  "items": "{count} item | {count} items",
   "title": "{displayName}'s Wishlist",
   "viewDetail": "View detail",
   "viewWishlist": "View wishlist"

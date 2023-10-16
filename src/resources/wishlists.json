@@ -1,5 +1,9 @@
 [
   {
+    "id": "audrey",
+    "displayName": "Audrey"
+  },
+  {
     "id": "francis",
     "displayName": "Francis",
     "picture": "https://wishes.blob.core.windows.net/img/francis-pion.jpg",

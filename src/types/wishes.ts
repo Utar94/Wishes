@@ -18,6 +18,6 @@ export type Wish = {
 export type Wishlist = {
   id: string;
   displayName: string;
-  picture: string;
-  items: Wish[];
+  picture?: string;
+  items?: Wish[];
 };
