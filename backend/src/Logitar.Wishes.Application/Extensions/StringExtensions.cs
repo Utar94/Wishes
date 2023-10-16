@@ -25,6 +25,6 @@ internal static class StringExtensions
       words.Add(word.ToString());
     }
 
-    return string.Join('-', words);
+    return string.Join('-', words).ToLower();
   }
 }

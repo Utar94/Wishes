@@ -1,7 +1,12 @@
-﻿using Logitar.Wishes.Application;
+﻿using Logitar.Portal.Client;
+using Logitar.Wishes.Application;
+using Logitar.Wishes.Contracts.Constants;
+using Logitar.Wishes.Web.Authentication;
+using Logitar.Wishes.Web.Authorization;
 using Logitar.Wishes.Web.Extensions;
 using Logitar.Wishes.Web.Filters;
 using Logitar.Wishes.Web.Settings;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Logitar.Wishes.Web;
 
@@ -17,31 +22,30 @@ public static class DependencyInjectionExtensions
     services.AddSingleton(corsSettings);
     services.AddCors(corsSettings);
 
-    //services.AddAuthentication()
-    //  .AddScheme<ApiKeyAuthenticationOptions, ApiKeyAuthenticationHandler>(Schemes.ApiKey, options => { })
-    //  .AddScheme<BasicAuthenticationOptions, BasicAuthenticationHandler>(Schemes.Basic, options => { })
-    //  .AddScheme<SessionAuthenticationOptions, SessionAuthenticationHandler>(Schemes.Session, options => { }); // TODO(fpion): Authentication
+    IdentitySettings identitySettings = configuration.GetSection("Identity").Get<IdentitySettings>() ?? new();
+    services.AddSingleton(identitySettings);
 
-    //services.AddAuthorization(options =>
-    //{
-    //  options.AddPolicy(Policies.PortalActor, new AuthorizationPolicyBuilder(Schemes.All)
-    //  .RequireAuthenticatedUser()
-    //    .AddRequirements(new PortalActorAuthorizationRequirement())
-    //    .Build());
-    //}); // TODO(fpion): Authorization
+    services.AddAuthentication()
+      .AddScheme<ApiKeyAuthenticationOptions, ApiKeyAuthenticationHandler>(Schemes.ApiKey, options => { })
+      .AddScheme<BasicAuthenticationOptions, BasicAuthenticationHandler>(Schemes.Basic, options => { });
 
-    //CookiesSettings cookiesSettings = configuration.GetSection("Cookies").Get<CookiesSettings>() ?? new();
-    //services.AddSingleton(cookiesSettings);
-    //services.AddSession(options =>
-    //{
-    //  options.Cookie.SameSite = cookiesSettings.Session.SameSite;
-    //  options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-    //}); // TODO(fpion): Session
+    services.AddAuthorization(options =>
+    {
+      options.AddPolicy(Policies.CanReadWishlists, new AuthorizationPolicyBuilder(Schemes.All)
+        .RequireAuthenticatedUser()
+        .AddRequirements(new RoleAuthorizationRequirement(identitySettings.Roles.ReadWishlists))
+        .Build());
+      options.AddPolicy(Policies.CanWriteWishlists, new AuthorizationPolicyBuilder(Schemes.All)
+        .RequireAuthenticatedUser()
+        .AddRequirements(new RoleAuthorizationRequirement(identitySettings.Roles.WriteWishlists))
+        .Build());
+    });
 
-    //services.AddDistributedMemoryCache(); // TODO(fpion): Session
     services.AddMemoryCache();
     services.AddSingleton<IApplicationContext, HttpApplicationContext>();
-    //services.AddSingleton<IAuthorizationHandler, PortalActorAuthorizationHandler>(); // TODO(fpion): Authorization
+    services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
+
+    services.AddLogitarPortalClient(identitySettings);
 
     return services;
   }

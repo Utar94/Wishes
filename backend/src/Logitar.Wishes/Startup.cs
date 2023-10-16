@@ -1,4 +1,5 @@
 ﻿using Logitar.EventSourcing.EntityFrameworkCore.Relational;
+using Logitar.Wishes.Contracts.Constants;
 using Logitar.Wishes.EntityFrameworkCore.PostgreSQL;
 using Logitar.Wishes.EntityFrameworkCore.Relational;
 using Logitar.Wishes.EntityFrameworkCore.SqlServer;
@@ -82,11 +83,10 @@ internal class Startup : StartupBase
 
     builder.UseHttpsRedirection();
     builder.UseCors();
-    //builder.UseSession(); // TODO(fpion): Session
-    //builder.UseAuthentication(); // TODO(fpion): Authentication
-    //builder.UseAuthorization(); // TODO(fpion): Authorization
+    builder.UseAuthentication();
+    builder.UseAuthorization();
 
-    builder.UseGraphQL<WishesSchema>("/graphql"/*, options => options.AuthenticationSchemes.AddRange(Schemes.All)*/); // TODO(fpion): Authentication
+    builder.UseGraphQL<WishesSchema>("/graphql", options => options.AuthenticationSchemes.AddRange(Schemes.All));
 
     if (builder is WebApplication application)
     {

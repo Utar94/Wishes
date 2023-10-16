@@ -30,6 +30,13 @@ internal class CreateWishlistCommandHandler : CommandHandler, IRequestHandler<Cr
     DisplayNameUnit displayName = new(payload.DisplayName);
     WishlistAggregate wishlist = new(displayName, ApplicationContext.ActorId, id);
 
+    if (!string.IsNullOrWhiteSpace(payload.PictureUrl))
+    {
+      wishlist.PictureUrl = new Uri(payload.PictureUrl.Trim());
+    }
+
+    wishlist.Update(ApplicationContext.ActorId);
+
     await _wishlistRepository.SaveAsync(wishlist, cancellationToken);
 
     return Accept(wishlist);

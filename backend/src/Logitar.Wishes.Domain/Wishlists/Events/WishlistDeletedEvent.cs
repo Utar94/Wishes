@@ -8,5 +8,6 @@ public record WishlistDeletedEvent : DomainEvent, INotification
   public WishlistDeletedEvent(ActorId actorId)
   {
     ActorId = actorId;
+    IsDeleted = true;
   }
 }
