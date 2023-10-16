@@ -11,6 +11,7 @@ import {
   faChessRook,
   faChevronLeft,
   faCircleInfo,
+  faDollarSign,
   faEye,
   faEyeSlash,
   faFloppyDisk,
@@ -23,6 +24,7 @@ import {
   faSearch,
   faTimes,
   faTrash,
+  faTriangleExclamation,
   faUser,
   faVial,
 } from "@fortawesome/free-solid-svg-icons";
@@ -36,6 +38,7 @@ library.add(
   faChessRook,
   faChevronLeft,
   faCircleInfo,
+  faDollarSign,
   faEye,
   faEyeSlash,
   faFloppyDisk,
@@ -48,6 +51,7 @@ library.add(
   faSearch,
   faTimes,
   faTrash,
+  faTriangleExclamation,
   faUser,
   faVial
 );

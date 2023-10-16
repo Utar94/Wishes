@@ -1,0 +1,182 @@
+[
+  {
+    "id": "francis",
+    "title": "Liste de souhaits de Francis",
+    "items": [
+      {
+        "id": "essoreuse-salade",
+        "gallery": [
+          "https://wishes.blob.core.windows.net/img/essoreuse-salade.jpg",
+          "https://wishes.blob.core.windows.net/img/essoreuse-salade-repliable.jpg",
+          "https://wishes.blob.core.windows.net/img/essoreuse-salade-metal.jpg"
+        ],
+        "links": [
+          "https://www.stokesstores.com/fr/essoreuse-a-salade-flow-par-thinkkitchen.html",
+          "https://www.walmart.ca/fr/ip/essoreuse-salade-de-starfrit/6000192928374",
+          "https://www.amazon.ca/Cuisinart-CTG-00-SSAS-Salad-Spinner-Green/dp/B01FCJHWIG",
+          "https://boutique.ricardocuisine.com/fr/essoreuse-a-salade.html",
+          "https://www.canadiantire.ca/fr/pdp/essoreuse-a-salade-master-chef-5-l-1429401p.1429401.html"
+        ],
+        "picture": "https://wishes.blob.core.windows.net/img/essoreuse-salade-400.jpg",
+        "price": [15, 45],
+        "summary": "Mieux manger en cuisinant de bonnes salades",
+        "title": "Essoreuse à salade",
+        "contents": {
+          "text": "La notre a rendu l’âme. Éviter les mécanismes à corde et les électroniques. Pas besoin d’être repliable, il y a de la place dans les armoires de cuisine."
+        }
+      },
+      {
+        "id": "coffee-cups",
+        "gallery": [
+          "https://wishes.blob.core.windows.net/img/coffee-cups.jpg",
+          "https://wishes.blob.core.windows.net/img/coffee-cup-1.jpg",
+          "https://wishes.blob.core.windows.net/img/coffee-cup-2.jpg",
+          "https://wishes.blob.core.windows.net/img/coffee-cup-3.jpg",
+          "https://wishes.blob.core.windows.net/img/coffee-cup-4.jpg"
+        ],
+        "links": [
+          "https://cafune.ca/products/loveramics-egg-300ml-latte-cup-saucer",
+          "https://www.amazon.ca/CnGlass-Cappuccino-Espresso-Insulated-Handles/dp/B07VQFM5HP/ref=sr_1_14",
+          "https://www.amazon.ca/Yesland-Ceramic-Cappuccino-Saucers-Specialty/dp/B07Y34MRHF/ref=sr_1_5",
+          "https://www.amazon.ca/Peohud-Stainless-Espresso-Cappuccino-Americano/dp/B094NQH2YM/ref=sr_1_7",
+          "https://www.amazon.ca/Yundu-Porcelain-Latte-Cup-Saucer/dp/B093DBGXXW/ref=sr_1_9"
+        ],
+        "picture": "https://wishes.blob.core.windows.net/img/coffee-cups-400.jpg",
+        "price": [20, 60],
+        "summary": "Mieux apprécier les pauses de la journée",
+        "title": "Tasses à café",
+        "contents": {
+          "text": "## Description\n\nDes tasses à café pour le café spécialité (macchiato, cappucino, latte, flat white, etc.). Ces tasses ont généralement un profil bas (écrasé) et sont plus larges que la moyenne.\n\nL’assiette et la petite cuillère que l’on voit en photos sont facultatifs. Le motif et la couleur importent peu, sauf si c’est trop _fancy_.\n\n## Quantité\n\nAyant une capacité limitée dans le lave-vaisselle et les armoires, je crois qu’une quantité de 4 à 8 tasses serait parfaitement adéquate. En avoir plus serait superflu.",
+          "type": "text/markdown"
+        }
+      },
+      {
+        "id": "game-master-books",
+        "incomplete": true,
+        "gallery": [
+          "https://wishes.blob.core.windows.net/img/astonishing-random-tables.jpg",
+          "https://wishes.blob.core.windows.net/img/legendary-dragons.jpg",
+          "https://wishes.blob.core.windows.net/img/non-player-characters.jpg",
+          "https://wishes.blob.core.windows.net/img/proactive-roleplaying.jpg",
+          "https://wishes.blob.core.windows.net/img/villains-minions-and-their-tactics.jpg"
+        ],
+        "picture": "https://wishes.blob.core.windows.net/img/game-master-books-400.jpg",
+        "price": [20, 40],
+        "summary": "Améliorer l’expérience de jeu",
+        "title": "Livres du maître de jeu"
+      },
+      {
+        "id": "super-mario-bros-wonder",
+        "gallery": [
+          "https://wishes.blob.core.windows.net/img/super-mario-bros-wonder.jpg",
+          "https://wishes.blob.core.windows.net/img/super-mario-bros-wonder-case.jpg"
+        ],
+        "links": [
+          "https://www.walmart.ca/fr/ip/jeu-vido-super-mario-bros-wonder-pour-nintendo-switch/6000206705619?from=/search",
+          "https://www.bestbuy.ca/en-ca/product/super-mario-bros-wonder-switch/17160822",
+          "https://www.gamestop.ca/Switch/Games/904641",
+          "https://www.thesource.ca/en-ca/gaming/nintendo/nintendo-switch-games/super-mario-bros-%E2%84%A2-wonder-for-nintendo-switch/p/108105511",
+          "https://supermariobroswonder.nintendo.com/ca/"
+        ],
+        "picture": "https://wishes.blob.core.windows.net/img/super-mario-bros-wonder-400.jpg",
+        "summary": "Super jeu familial, jusqu’à 4 joueurs",
+        "price": [80],
+        "title": "Super Mario Bros Wonder",
+        "contents": {
+          "text": "<p>Jeu vidéo de Nintendo Switch qui sera disponible à partir du <b><u>20 octobre 2023</u></b>. Il est probablement possible de le précommander en ligne ou dans chacun des magasins listés dans les liens externes ci-dessous.</p><p>Cela pourrait être intéressant de l’avoir pour la soirée de Noël familiale puisque jusqu’à 4 joueurs peuvent y jouer simultanément.</p>",
+          "type": "text/html"
+        }
+      },
+      {
+        "id": "coffee-beans",
+        "incomplete": true,
+        "gallery": ["https://wishes.blob.core.windows.net/img/coffee-beans.jpg"],
+        "picture": "https://wishes.blob.core.windows.net/img/coffee-beans-400.jpg",
+        "summary": "Déguster un bon breuvage chaud pendant les pauses de la journée",
+        "title": "Grains de café spécialité"
+      },
+      {
+        "id": "joy-con-comfort-grip",
+        "gallery": [
+          "https://wishes.blob.core.windows.net/img/joy-con-comfort-grip.jpg",
+          "https://wishes.blob.core.windows.net/img/joy-con-comfort-grip-1.jpg",
+          "https://wishes.blob.core.windows.net/img/joy-con-comfort-grip-2.jpg"
+        ],
+        "links": [
+          "https://www.amazon.ca/Nintendo-Switch-Joy-Comfort-Black/dp/B01MS7YUA7/ref=sr_1_3?th=1",
+          "https://www.amazon.ca/Joycon-Comfort-Switch-Controller-Indicator/dp/B0CC6HZ5L1/ref=sr_1_4",
+          "https://www.amazon.ca/Nintendo-Controller-TalkWorks-Accessories-Handheld/dp/B07R8G2JCW/ref=sr_1_9",
+          "https://www.amazon.ca/CHARGING-Accessories-Nintendo-Charging-Chargeable/dp/B07CSPJMT8/ref=sr_1_20",
+          "https://www.nintendo.com/en-ca/store/products/joy-con-grip-105703/"
+        ],
+        "picture": "https://wishes.blob.core.windows.net/img/joy-con-comfort-grip-400.jpg",
+        "price": [15, 25],
+        "summary": "Pour les plus grosses mains",
+        "title": "Joy-Con Comfort Grip",
+        "contents": {
+          "text": "<p>Un accessoire pour joindre une paire de manettes Switch Joy-Con. De préférence noir, et de marque PowerA (<a href=\"https://www.amazon.ca/Nintendo-Switch-Joy-Comfort-Black/dp/B01MS7YUA7/ref=sr_1_3?th=1\" target=\"_blank\">voir sur Amazon</a>).</p><p>Il n’en vaut pas la peine de payer cet accessoire cher, ni d’avoir des fonctionnalités supplémentaires comme le chargement des manettes.</p><p>Je ne crois pas qu’il sera possible ni rentable d’en trouver en magasin.</p>",
+          "type": "text/html"
+        }
+      },
+      {
+        "id": "socks",
+        "gallery": ["https://wishes.blob.core.windows.net/img/socks.jpg", "https://wishes.blob.core.windows.net/img/socks-black.jpg"],
+        "picture": "https://wishes.blob.core.windows.net/img/socks-400.jpg",
+        "price": [10, 30],
+        "summary": "Toujours besoin de bas !",
+        "title": "Bas",
+        "contents": {
+          "text": "6 à 12 paires de bas style sport, longueur moyenne (arrive directement au-dessus de l’os de la cheville). La marque importe peu, et de couleur noire de préférence."
+        }
+      },
+      {
+        "id": "pyjama",
+        "gallery": ["https://wishes.blob.core.windows.net/img/pyjama.jpg", "https://wishes.blob.core.windows.net/img/pyjama-hot-dog.jpg"],
+        "picture": "https://wishes.blob.core.windows.net/img/pyjama-400.jpg",
+        "price": [10, 30],
+        "summary": "Mieux affronter les nuits fraîches",
+        "title": "Pyjamas",
+        "contents": {
+          "text": "Il me reste 2½ paires de bas que j’ai reçues l’an dernier. Je possède 3 paires de pantalons de pyjama en très bon état, et mon chandail de l’année dernière est encore en bon état.\n\nIl me serait utile d’avoir 1 à 4 paires de sous-vêtements supplémentaires (aux motifs similaires à ceux en photos), ainsi qu’un chandail de plus.",
+          "type": "text/markdown"
+        }
+      },
+      {
+        "id": "serviette-de-plage",
+        "gallery": ["https://wishes.blob.core.windows.net/img/serviette-de-plage.jpg", "https://wishes.blob.core.windows.net/img/serviette-de-plage-paire.jpg"],
+        "picture": "https://wishes.blob.core.windows.net/img/serviette-de-plage-400.jpg",
+        "price": [10, 40],
+        "summary": "Pour la douche et la baignade",
+        "title": "Serviette de plage",
+        "contents": {
+          "text": "Une serviette comme celles-ci, de grande taille et avec une bonne capacité d’absorption de l’eau. Il est inscrit « Serviette de plage » sur l’étiquette. Les modèles et couleur importent peu (éviter le drapeau du Canada), privilégier un aspect masculin."
+        }
+      },
+      {
+        "id": "sirius",
+        "incomplete": true,
+        "gallery": ["https://wishes.blob.core.windows.net/img/sirius.jpg"],
+        "picture": "https://wishes.blob.core.windows.net/img/sirius-400.jpg",
+        "summary": "Passer du bon moment avec son maître",
+        "title": "Accessoires pour Sirius"
+      },
+      {
+        "id": "sortilege-prestige",
+        "gallery": [
+          "https://wishes.blob.core.windows.net/img/sortilege-prestige-1.jpg",
+          "https://wishes.blob.core.windows.net/img/sortilege-prestige.png",
+          "https://wishes.blob.core.windows.net/img/sortilege-prestige-2.jpg"
+        ],
+        "links": ["https://www.saq.com/fr/11795961"],
+        "picture": "https://wishes.blob.core.windows.net/img/sortilege-prestige-400.jpg",
+        "price": [54],
+        "summary": "Pour un petit moment tranquille en bonne compagnie",
+        "title": "Sortilège Prestige",
+        "contents": {
+          "text": "## Description\n\n_Mariage réussi entre un whisky canadien vieilli plus de sept ans en fût de chêne et un sirop d’érable québécois pur de première coulée. Vous l’apprécierez autant en apéritif, en digestif ou en cocktail qu’en accord avec les desserts à l’érable et au caramel._\n\n## Disponibilité\n\nVous pouvez l’acheter à la SAQ, en ligne, ou vérifier les quantités en succursale avant de vous déplacer afin d’éviter les mauvaises surprises.\n\n## Quantité\n\nUne seule bouteille sera nécessaire à la découverte de ce produit québécois.",
+          "type": "text/markdown"
+        }
+      }
+    ]
+  }
+]
