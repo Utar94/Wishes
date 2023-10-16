@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
+
 import CustomAttributeEdit from "./CustomAttributeEdit.vue";
-import type { CustomAttribute } from "@/types/customAttribute";
+import type { CustomAttribute } from "@/types/customAttributes";
 
 const { t } = useI18n();
 
@@ -40,7 +41,7 @@ function update(index: number, attribute: CustomAttribute): void {
 <template>
   <div :id="id">
     <div class="mb-3">
-      <icon-button icon="plus" text="actions.add" variant="success" @click="add" />
+      <icon-button icon="fas fa-plus" text="actions.add" variant="success" @click="add" />
     </div>
     <template v-if="modelValue.length">
       <div class="row">

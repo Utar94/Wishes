@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+
 import type { Actor } from "@/types/actor";
 import { urlCombine } from "@/helpers/stringUtils";
 
@@ -32,11 +33,11 @@ const href = computed<string | undefined>(() => {
 const icon = computed<string | undefined>(() => {
   switch (props.actor.type) {
     case "ApiKey":
-      return "key";
+      return "fas fa-key";
     case "System":
-      return "robot";
+      return "fas fa-robot";
     case "User":
-      return "user";
+      return "fas fa-user";
   }
   return undefined;
 });
@@ -48,9 +49,9 @@ const variant = computed<string | undefined>(() => (props.actor.type === "ApiKey
     <div class="d-flex">
       <div class="d-flex align-content-center flex-wrap mx-1">
         <a v-if="href" :href="href" target="_blank">
-          <app-avatar :display-name="displayName" :email-address="actor.emailAddress" :icon="icon" :url="actor.picture" :variant="variant" />
+          <app-avatar :display-name="displayName" :email-address="actor.emailAddress" :icon="icon" :url="actor.pictureUrl" :variant="variant" />
         </a>
-        <app-avatar v-else :display-name="displayName" :email-address="actor.emailAddress" :icon="icon" :url="actor.picture" :variant="variant" />
+        <app-avatar v-else :display-name="displayName" :email-address="actor.emailAddress" :icon="icon" :url="actor.pictureUrl" :variant="variant" />
       </div>
     </div>
     <div>

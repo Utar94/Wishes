@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CustomAttribute } from "@/types/customAttribute";
+import type { CustomAttribute } from "@/types/customAttributes";
 import { assign } from "@/helpers/objectUtils";
 
 const props = defineProps<{
@@ -35,7 +35,7 @@ function onUpdate(changes: object): void {
         @update:model-value="onUpdate({ key: $event })"
       >
         <template #prepend>
-          <icon-button icon="times" variant="danger" @click="$emit('remove')" />
+          <icon-button icon="fas fa-times" variant="danger" @click="$emit('remove')" />
         </template>
       </form-input>
     </div>

@@ -29,11 +29,11 @@ const href = computed<string | undefined>(() => {
 const icon = computed<string | undefined>(() => {
   switch (props.actor.type) {
     case "ApiKey":
-      return "key";
+      return "fas fa-key";
     case "System":
-      return "robot";
+      return "fas fa-robot";
     case "User":
-      return "user";
+      return "fas fa-user";
   }
   return undefined;
 });
@@ -44,11 +44,11 @@ const variant = computed<string | undefined>(() => (props.actor.type === "ApiKey
   <span>
     {{ t(format, { date: d(date, "medium") }) }}
     <template v-if="actor.isDeleted">
-      <app-avatar :display-name="actor.displayName" :email-address="actor.emailAddress" :icon="icon" :size="24" :url="actor.picture" :variant="variant" />
+      <app-avatar :display-name="actor.displayName" :email-address="actor.emailAddress" :icon="icon" :size="24" :url="actor.pictureUrl" :variant="variant" />
       {{ actor.displayName }}
     </template>
     <a v-else :href="href" target="_blank">
-      <app-avatar :display-name="actor.displayName" :email-address="actor.emailAddress" :icon="icon" :size="24" :url="actor.picture" :variant="variant" />
+      <app-avatar :display-name="actor.displayName" :email-address="actor.emailAddress" :icon="icon" :size="24" :url="actor.pictureUrl" :variant="variant" />
       {{ actor.displayName }} <font-awesome-icon icon="fas fa-arrow-up-right-from-square" />
     </a>
   </span>
