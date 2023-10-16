@@ -34,7 +34,7 @@ const contentType = computed<ContentType | undefined>(() => (wish.value?.content
 onMounted(() => {
   wishlist.value = wishlists.find(({ id }) => id === route.params.listId) as Wishlist;
   if (wishlist.value) {
-    wish.value = wishlist.value.items.find(({ id }) => id === route.params.itemId);
+    wish.value = wishlist.value.items?.find(({ id }) => id === route.params.itemId);
   }
   if (!wish.value) {
     router.push({ path: "/not-found" });
