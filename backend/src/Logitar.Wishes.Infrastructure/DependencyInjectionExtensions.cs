@@ -4,7 +4,6 @@ using Logitar.Wishes.Application.Caching;
 using Logitar.Wishes.Infrastructure.Caching;
 using Logitar.Wishes.Infrastructure.Converters;
 using Microsoft.Extensions.DependencyInjection;
-using System.Text.Json.Serialization;
 
 namespace Logitar.Wishes.Infrastructure;
 

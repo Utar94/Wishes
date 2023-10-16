@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Logitar.Wishes.Domain.Exceptions;
+﻿namespace Logitar.Wishes.Domain.Exceptions;
 
 public class ExceptionMessageBuilder : IExceptionMessageBuilder
 {
