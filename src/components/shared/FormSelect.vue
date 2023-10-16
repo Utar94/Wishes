@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { useField } from "vee-validate";
 import { useI18n } from "vue-i18n";
+
 import type { SelectOption } from "@/types/components";
 import type { ValidationListeners, ValidationRules } from "@/types/validation";
 
@@ -65,7 +66,7 @@ const validationListeners = computed<ValidationListeners>(() => ({
     <div class="input-group">
       <slot name="prepend"></slot>
       <select :class="classes" :disabled="disabled" :id="id" :name="inputName" :value="value" v-on="validationListeners">
-        <option v-if="placeholder" :disabled="required" value="">{{ t(placeholder) }}</option>
+        <option v-if="placeholder" :disabled="required && Boolean(options.length)" value="">{{ t(placeholder) }}</option>
         <option v-for="option in options" :key="option.value" :value="option.value">{{ option.text }}</option>
       </select>
       <slot name="append"></slot>

@@ -1,5 +1,7 @@
 import type { App } from "vue";
 
+import AppAccordion from "./AppAccordion.vue";
+import AppAccordionItem from "./AppAccordionItem.vue";
 import AppAlert from "./AppAlert.vue";
 import AppAvatar from "./AppAvatar.vue";
 import AppBadge from "./AppBadge.vue";
@@ -11,6 +13,7 @@ import AppPagination from "./AppPagination.vue";
 import AppTab from "./AppTab.vue";
 import AppTabs from "./AppTabs.vue";
 import CountSelect from "./CountSelect.vue";
+import CustomAttributeEdit from "./CustomAttributeEdit.vue";
 import CustomAttributeList from "./CustomAttributeList.vue";
 import DateTimeInput from "./DateTimeInput.vue";
 import DeleteModal from "./DeleteModal.vue";
@@ -29,9 +32,14 @@ import SlugInput from "./SlugInput.vue";
 import SortSelect from "./SortSelect.vue";
 import StatusBlock from "./StatusBlock.vue";
 import StatusDetail from "./StatusDetail.vue";
+import StatusInfo from "./StatusInfo.vue";
+import UniqueNameInput from "./UniqueNameInput.vue";
 import UrlInput from "./UrlInput.vue";
+import YesNoSelect from "./YesNoSelect.vue";
 
 export default function (app: App) {
+  app.component("app-accordion", AppAccordion);
+  app.component("app-accordion-item", AppAccordionItem);
   app.component("app-alert", AppAlert);
   app.component("app-avatar", AppAvatar);
   app.component("app-badge", AppBadge);
@@ -43,6 +51,7 @@ export default function (app: App) {
   app.component("app-tab", AppTab);
   app.component("app-tabs", AppTabs);
   app.component("count-select", CountSelect);
+  app.component("custom-attribute-edit", CustomAttributeEdit);
   app.component("custom-attribute-list", CustomAttributeList);
   app.component("date-time-input", DateTimeInput);
   app.component("delete-modal", DeleteModal);
@@ -61,5 +70,8 @@ export default function (app: App) {
   app.component("sort-select", SortSelect);
   app.component("status-block", StatusBlock);
   app.component("status-detail", StatusDetail);
+  app.component("status-info", StatusInfo);
+  app.component("unique-name-input", UniqueNameInput);
   app.component("url-input", UrlInput);
+  app.component("yes-no-select", YesNoSelect);
 }

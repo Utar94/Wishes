@@ -39,6 +39,7 @@
     "label": "Langue",
     "placeholder": "Sélectionnez une langue"
   },
+  "no": "Non",
   "notFound": {
     "help": "La page demandée n’a pu être trouvée.",
     "lead": "Page introuvable",
@@ -81,5 +82,14 @@
       "signedOut": "Vous avez été déconnecté, veuillez vous reconnecter à votre compte.",
       "title": "Attention !"
     }
-  }
+  },
+  "uniqueName": {
+    "alreadyUsed": {
+      "help": "Veuillez entrer un nom unique différent.",
+      "lead": "Le nom unique est déjà utilisé."
+    },
+    "label": "Nom unique",
+    "placeholder": "Entrez un nom unique"
+  },
+  "yes": "Oui"
 }

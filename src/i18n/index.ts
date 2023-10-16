@@ -7,8 +7,8 @@ type MessageSchema = typeof en;
 
 export default createI18n<[MessageSchema], "en" | "fr">({
   legacy: false,
-  locale: "en",
-  fallbackLocale: "en",
+  locale: "fr",
+  fallbackLocale: "fr",
   messages: {
     en,
     fr,

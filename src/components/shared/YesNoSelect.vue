@@ -1,31 +1,39 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
-import locales from "@/resources/locales.json";
 import type { SelectOption } from "@/types/components";
 import { orderBy } from "@/helpers/arrayUtils";
+
+const { t } = useI18n();
 
 withDefaults(
   defineProps<{
     disabled?: boolean;
-    id?: string;
-    label?: string;
+    id: string;
+    label: string;
     modelValue?: string;
-    placeholder?: string;
+    placeholder: string;
     required?: boolean;
   }>(),
   {
     disabled: false,
-    id: "locale",
-    label: "locale.label",
-    placeholder: "locale.placeholder",
     required: false,
   }
 );
 
 const options = computed<SelectOption[]>(() =>
   orderBy(
-    locales.map(({ code, nativeName }) => ({ value: code, text: nativeName })),
+    [
+      {
+        text: t("no"),
+        value: "false",
+      },
+      {
+        text: t("yes"),
+        value: "true",
+      },
+    ],
     "text"
   )
 );
@@ -41,6 +49,7 @@ defineEmits<{
     :id="id"
     :label="label"
     :model-value="modelValue"
+    :no-state="!required"
     :options="options"
     :placeholder="placeholder"
     :required="required"
