@@ -3,6 +3,7 @@ import type { App } from "vue";
 import AppAlert from "./AppAlert.vue";
 import AppAvatar from "./AppAvatar.vue";
 import AppBadge from "./AppBadge.vue";
+import AppBreadbar from "./AppBreadbar.vue";
 import AppCard from "./AppCard.vue";
 import AppCarousel from "./AppCarousel.vue";
 import AppModal from "./AppModal.vue";
@@ -34,6 +35,7 @@ export default function (app: App) {
   app.component("app-alert", AppAlert);
   app.component("app-avatar", AppAvatar);
   app.component("app-badge", AppBadge);
+  app.component("app-breadbar", AppBreadbar);
   app.component("app-card", AppCard);
   app.component("app-carousel", AppCarousel);
   app.component("app-modal", AppModal);
