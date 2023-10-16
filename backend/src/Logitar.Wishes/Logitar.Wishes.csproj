@@ -35,11 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Logitar.Wishes.EntityFrameworkCore.PostgreSQL\Logitar.Wishes.EntityFrameworkCore.PostgreSQL.csproj" />
+    <ProjectReference Include="..\Logitar.Wishes.EntityFrameworkCore.SqlServer\Logitar.Wishes.EntityFrameworkCore.SqlServer.csproj" />
     <ProjectReference Include="..\Logitar.Wishes.GraphQL\Logitar.Wishes.GraphQL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Using Include="System.Text.Json.Serialization" />
+    <ProjectReference Include="..\Logitar.Wishes.Web\Logitar.Wishes.Web.csproj" />
   </ItemGroup>
 
 </Project>

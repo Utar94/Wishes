@@ -1,4 +1,7 @@
-﻿namespace Logitar.Wishes;
+﻿using Logitar.Wishes.Infrastructure.Commands;
+using MediatR;
+
+namespace Logitar.Wishes;
 
 public class Program
 {
@@ -14,8 +17,8 @@ public class Program
     startup.Configure(application);
 
     using IServiceScope scope = application.Services.CreateScope();
-    //IPublisher publisher = scope.ServiceProvider.GetRequiredService<IPublisher>();
-    //await publisher.Publish(new InitializeDatabaseCommand()); // TODO(fpion): database initialization
+    IPublisher publisher = scope.ServiceProvider.GetRequiredService<IPublisher>();
+    await publisher.Publish(new InitializeDatabaseCommand());
 
     application.Run();
   }
