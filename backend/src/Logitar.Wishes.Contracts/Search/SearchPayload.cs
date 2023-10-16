@@ -7,6 +7,6 @@ public record SearchPayload
 
   public List<SortOption> Sort { get; set; } = new();
 
-  public long Skip { get; set; }
-  public long Limit { get; set; }
+  public int Skip { get; set; }
+  public int Limit { get; set; }
 }
