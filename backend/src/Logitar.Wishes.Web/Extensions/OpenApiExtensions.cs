@@ -2,7 +2,7 @@
 
 namespace Logitar.Wishes.Extensions;
 
-internal static class OpenApiExtensions
+public static class OpenApiExtensions
 {
   private const string Title = "Wishes API";
   private static readonly Version Version = new(1, 0, 0);

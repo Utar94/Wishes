@@ -1,4 +1,4 @@
-﻿namespace Logitar.Wishes.Settings;
+﻿namespace Logitar.Wishes.Web.Settings;
 
 internal record CorsSettings
 {

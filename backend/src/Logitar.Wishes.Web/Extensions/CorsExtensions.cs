@@ -1,6 +1,6 @@
-﻿using Logitar.Wishes.Settings;
+﻿using Logitar.Wishes.Web.Settings;
 
-namespace Logitar.Wishes.Extensions;
+namespace Logitar.Wishes.Web.Extensions;
 
 internal static class CorsExtensions
 {
