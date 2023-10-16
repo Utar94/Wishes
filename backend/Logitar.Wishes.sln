@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A7BF93CF-726D-4559-A93A-CD22013C4602}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logitar.Wishes", "src\Logitar.Wishes\Logitar.Wishes.csproj", "{CAFC3613-C52F-44D4-BDF0-CAAB46A72976}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logitar.Wishes.Contracts", "src\Logitar.Wishes.Contracts\Logitar.Wishes.Contracts.csproj", "{6CA26049-E4C4-4E7F-A595-873CDD8FE3A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logitar.Wishes.GraphQL", "src\Logitar.Wishes.GraphQL\Logitar.Wishes.GraphQL.csproj", "{BBF6B06D-6118-4421-B353-A057E2B54445}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAFC3613-C52F-44D4-BDF0-CAAB46A72976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFC3613-C52F-44D4-BDF0-CAAB46A72976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFC3613-C52F-44D4-BDF0-CAAB46A72976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFC3613-C52F-44D4-BDF0-CAAB46A72976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA26049-E4C4-4E7F-A595-873CDD8FE3A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA26049-E4C4-4E7F-A595-873CDD8FE3A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA26049-E4C4-4E7F-A595-873CDD8FE3A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA26049-E4C4-4E7F-A595-873CDD8FE3A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF6B06D-6118-4421-B353-A057E2B54445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF6B06D-6118-4421-B353-A057E2B54445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF6B06D-6118-4421-B353-A057E2B54445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF6B06D-6118-4421-B353-A057E2B54445}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C617F845-69A3-456D-90F7-56ECB9927C72}
+	EndGlobalSection
+EndGlobal
