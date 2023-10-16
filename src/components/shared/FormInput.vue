@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { useField } from "vee-validate";
 import { useI18n } from "vue-i18n";
+
 import type { ValidationListeners, ValidationRules } from "@/types/validation";
 
 const { t } = useI18n();
@@ -22,6 +23,7 @@ const props = withDefaults(
     noLabel?: boolean;
     noState?: boolean;
     placeholder?: string;
+    readonly?: boolean;
     required?: boolean;
     rules?: object;
     step?: number;
@@ -31,6 +33,7 @@ const props = withDefaults(
     disabled: false,
     noLabel: false,
     noState: false,
+    readonly: false,
     required: false,
     type: "text",
   }
@@ -127,6 +130,7 @@ defineExpose({ focus });
         :min="inputMin"
         :name="inputName"
         :placeholder="placeholder ? t(placeholder) : undefined"
+        :readonly="readonly"
         ref="inputRef"
         :step="type === 'number' ? step : undefined"
         :type="type"

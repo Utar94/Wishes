@@ -10,11 +10,15 @@ export default defineConfig({
     vue(),
     VueI18nPlugin({
       include: resolve(dirname(fileURLToPath(import.meta.url)), "./i18n/**"),
+      jitCompilation: true,
     }),
   ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
+  },
+  server: {
+    port: 8080,
   },
 });

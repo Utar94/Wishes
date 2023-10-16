@@ -1,13 +1,30 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
 
-defineProps<{
-  id: string;
-  label?: string;
-  modelValue?: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    disabled?: boolean;
+    id: string;
+    label?: string;
+    modelValue?: boolean;
+    switch?: boolean;
+  }>(),
+  {
+    disabled: false,
+    switch: false,
+  }
+);
+
+const classes = computed<string[]>(() => {
+  const classes = ["form-check"];
+  if (props.switch) {
+    classes.push("form-switch");
+  }
+  return classes;
+});
 
 const emit = defineEmits<{
   (e: "update:model-value", value: boolean): void;
@@ -20,8 +37,8 @@ function onChange($event: Event): void {
 </script>
 
 <template>
-  <div class="form-check">
-    <input type="checkbox" :checked="modelValue" class="form-check-input" :id="id" @change="onChange" />
+  <div :class="classes">
+    <input type="checkbox" :checked="modelValue" class="form-check-input" :disabled="disabled" :id="id" @change="onChange" />
     <label class="form-check-label" :for="id">
       <template v-if="label">{{ t(label) }}</template>
       <slot name="label"></slot>
