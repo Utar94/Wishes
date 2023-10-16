@@ -17,6 +17,7 @@ export type Wish = {
 
 export type Wishlist = {
   id: string;
-  title: string;
+  displayName: string;
+  picture: string;
   items: Wish[];
 };

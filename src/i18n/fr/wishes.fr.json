@@ -1,3 +1,6 @@
 {
-  "externalLinks": "Liens externes"
+  "externalLinks": "Liens externes",
+  "title": "Liste de souhaits de {displayName}",
+  "viewDetail": "Voir les détails",
+  "viewWishlist": "Voir la liste de souhaits"
 }

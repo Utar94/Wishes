@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
 import { type RouteLocationRaw } from "vue-router";
 import { computed } from "vue";
 
+import type { ButtonVariant } from "@/types/components";
 import type { Wish } from "@/types/wishes";
-
-const { t } = useI18n();
 
 const props = defineProps<{
   item: Wish;
@@ -20,7 +18,7 @@ const variant = computed<ButtonVariant>(() => (props.item.incomplete ? "warning"
 <template>
   <div>
     <app-card :picture="item.picture" :text="item.summary" :title="item.title" :to="to">
-      <icon-button :icon="icon" text="home.viewDetail" :to="to" :variant="variant" />
+      <icon-button :icon="icon" text="wishes.viewDetail" :to="to" :variant="variant" />
     </app-card>
   </div>
 </template>

@@ -1,25 +1,20 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from "vue";
-import { RouterLink, useRouter } from "vue-router";
+import { computed, watchEffect } from "vue";
+import { RouterLink } from "vue-router";
 import { useI18n } from "vue-i18n";
 import { setLocale } from "@vee-validate/i18n";
 import locales from "@/resources/locales.json";
 import type { Locale } from "@/types/i18n";
 import { orderBy } from "@/helpers/arrayUtils";
-import { urlCombine } from "@/helpers/stringUtils";
 import { useI18nStore } from "@/stores/i18n";
 
 const { availableLocales, locale, t } = useI18n();
-const apiBaseUrl: string = import.meta.env.VITE_APP_API_BASE_URL;
 
 const i18n = useI18nStore();
-const router = useRouter();
 
 const props = defineProps<{
   environment: string;
 }>();
-
-const search = ref<string>("");
 
 const environmentName = computed<string>(() => props.environment.toLowerCase());
 const otherLocales = computed<Locale[]>(() => {
@@ -29,13 +24,6 @@ const otherLocales = computed<Locale[]>(() => {
     "nativeName"
   );
 });
-const swaggerUrl = computed<string | undefined>(() => (environmentName.value === "development" ? urlCombine(apiBaseUrl, "/swagger") : undefined));
-
-function onSearch(): void {
-  const query = { search: search.value, page: 1, count: 10 };
-  search.value = "";
-  router.push({ name: "RealmList", query });
-}
 
 watchEffect(() => {
   if (i18n.locale) {
@@ -71,11 +59,7 @@ watchEffect(() => {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li v-if="swaggerUrl" class="nav-item">
-            <a class="nav-link" :href="swaggerUrl" target="_blank"> <font-awesome-icon icon="fas fa-vial" /> Swagger</a>
-          </li>
-        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 
         <ul class="navbar-nav mb-2 mb-lg-0">
           <template v-if="i18n.locale">

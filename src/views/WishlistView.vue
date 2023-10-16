@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 
 import WishItem from "@/components/wishes/WishItem.vue";
@@ -9,6 +10,7 @@ import { orderBy } from "@/helpers/arrayUtils";
 
 const route = useRoute();
 const router = useRouter();
+const { t } = useI18n();
 
 const wishlist = ref<Wishlist>();
 
@@ -25,7 +27,13 @@ onMounted(() => {
 <template>
   <main class="container">
     <template v-if="wishlist">
-      <h1>{{ wishlist.title }}</h1>
+      <h1>
+        <app-avatar :display-name="wishlist.displayName" :url="wishlist.picture" />
+        {{ t("wishes.title", { displayName: wishlist.displayName }) }}
+      </h1>
+      <div class="mb-3">
+        <icon-button icon="fas fa-chevron-left" text="actions.back" :to="{ name: 'Home' }" variant="secondary" />
+      </div>
       <div class="row">
         <WishItem v-for="item in items" :key="item.id" class="col-lg-6 col-xl-4 mb-3" :item="item" :list-id="wishlist.id" />
       </div>

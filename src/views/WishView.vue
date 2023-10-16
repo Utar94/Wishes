@@ -29,6 +29,7 @@ onMounted(() => {
   <main class="container">
     <template v-if="wish">
       <h1>
+        <app-avatar :display-name="wish.title" :url="wish.picture" />
         {{ wish.title }}
         <app-badge v-if="wish.price && wish.price.length >= 1 && wish.price.length <= 2" variant="primary">
           <font-awesome-icon icon="fas fa-dollar-sign" /> {{ n(wish.price[0], "decimal") }}

@@ -3,14 +3,8 @@
     "add": "Ajouter",
     "back": "Retour",
     "cancel": "Annuler",
-    "clear": "Vider",
     "close": "Vider",
-    "create": "Créer",
-    "delete": "Supprimer",
-    "ok": "OK",
-    "refresh": "Rafraîchir",
-    "revert": "Annuler",
-    "save": "Enregistrer"
+    "delete": "Supprimer"
   },
   "brand": "Wishes",
   "by": "Par",
@@ -37,11 +31,8 @@
     "label": "Nom d’affichage",
     "placeholder": "Entrez un nom d’affichage"
   },
-  "general": "Général",
   "home": {
-    "clickMe": "Cliquez-moi ! ({count})",
-    "title": "Accueil",
-    "viewDetail": "Voir les détails"
+    "title": "Listes de souhaits"
   },
   "loading": "Chargement...",
   "locale": {
@@ -64,7 +55,6 @@
     "label": "Recherche",
     "placeholder": "Entrez quelque chose à chercher"
   },
-  "settings": "Paramètres",
   "slug": {
     "label": "Alias (slug)",
     "placeholder": "Entrez un alias (slug)"

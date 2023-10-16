@@ -11,8 +11,13 @@ const router = createRouter({
     },
     // Wishes
     {
+      name: "WishlistRoot",
+      path: "/wishlist",
+      redirect: { name: "Home" },
+    },
+    {
       name: "WishlistView",
-      path: "/wishes/:id",
+      path: "/wishlist/:id",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -20,7 +25,7 @@ const router = createRouter({
     },
     {
       name: "WishView",
-      path: "/wishes/:listId/:itemId",
+      path: "/wishlist/:listId/:itemId",
       component: () => import("./views/WishView.vue"),
     },
     // NotFound

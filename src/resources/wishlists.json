@@ -1,7 +1,8 @@
 [
   {
     "id": "francis",
-    "title": "Liste de souhaits de Francis",
+    "displayName": "Francis",
+    "picture": "https://wishes.blob.core.windows.net/img/francis-pion.jpg",
     "items": [
       {
         "id": "essoreuse-salade",
@@ -68,7 +69,7 @@
           "https://wishes.blob.core.windows.net/img/super-mario-bros-wonder-case.jpg"
         ],
         "links": [
-          "https://www.walmart.ca/fr/ip/jeu-vido-super-mario-bros-wonder-pour-nintendo-switch/6000206705619?from=/search",
+          "https://www.walmart.ca/fr/ip/jeu-vido-super-mario-bros-wonder-pour-nintendo-switch/6000206705619",
           "https://www.bestbuy.ca/en-ca/product/super-mario-bros-wonder-switch/17160822",
           "https://www.gamestop.ca/Switch/Games/904641",
           "https://www.thesource.ca/en-ca/gaming/nintendo/nintendo-switch-games/super-mario-bros-%E2%84%A2-wonder-for-nintendo-switch/p/108105511",
