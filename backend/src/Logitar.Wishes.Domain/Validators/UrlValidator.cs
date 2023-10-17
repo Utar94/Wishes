@@ -1,16 +1,15 @@
 ﻿using FluentValidation;
 using Logitar.Wishes.Domain.Extensions;
+using Logitar.Wishes.Domain.ValueObjects;
 
 namespace Logitar.Wishes.Domain.Validators;
 
 public class UrlValidator : AbstractValidator<string>
 {
-  public const int MaximumLength = 2048;
-
   public UrlValidator(string? propertyName = null)
   {
     RuleFor(x => x).NotEmpty()
-      .MaximumLength(MaximumLength)
+      .MaximumLength(UrlUnit.MaximumLength)
       .Must(BeAValidUrl)
         .WithErrorCode(nameof(UrlValidator))
         .WithMessage("'{PropertyName}' must be a valid URL.")

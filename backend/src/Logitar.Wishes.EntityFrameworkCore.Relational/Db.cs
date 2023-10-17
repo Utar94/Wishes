@@ -10,6 +10,11 @@ internal static class Db
     public static readonly TableId Table = new(nameof(WishesContext.Actors));
   }
 
+  public static class Items
+  {
+    public static readonly TableId Table = new(nameof(WishesContext.Items));
+  }
+
   public static class Wishlists
   {
     public static readonly TableId Table = new(nameof(WishesContext.Wishlists));

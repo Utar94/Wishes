@@ -1,6 +1,5 @@
 ﻿using Logitar.EventSourcing;
 using Logitar.Wishes.Contracts.Actors;
-using Logitar.Wishes.Domain.Validators;
 using Logitar.Wishes.Domain.ValueObjects;
 using Logitar.Wishes.EntityFrameworkCore.Relational.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +25,6 @@ internal class ActorConfiguration : IEntityTypeConfiguration<ActorEntity>
     builder.Property(x => x.Type).HasMaxLength(byte.MaxValue).HasConversion(new EnumToStringConverter<ActorType>());
     builder.Property(x => x.DisplayName).HasMaxLength(DisplayNameUnit.MaximumLength);
     builder.Property(x => x.EmailAddress).HasMaxLength(byte.MaxValue);
-    builder.Property(x => x.PictureUrl).HasMaxLength(UrlValidator.MaximumLength);
+    builder.Property(x => x.PictureUrl).HasMaxLength(UrlUnit.MaximumLength);
   }
 }

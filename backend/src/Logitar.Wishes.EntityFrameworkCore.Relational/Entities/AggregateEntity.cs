@@ -2,7 +2,7 @@
 
 namespace Logitar.Wishes.EntityFrameworkCore.Relational.Entities;
 
-internal abstract class AggregateEntity : Entity
+internal abstract class AggregateEntity : Entity, IMetadata
 {
   public string AggregateId { get; private set; } = string.Empty;
   public long Version { get; private set; }
@@ -16,21 +16,15 @@ internal abstract class AggregateEntity : Entity
   protected AggregateEntity()
   {
   }
-
   protected AggregateEntity(AggregateRoot aggregate)
   {
-    AggregateId = aggregate.Id.Value;
-
     CreatedBy = aggregate.CreatedBy.Value;
     CreatedOn = aggregate.CreatedOn.ToUniversalTime();
 
     Update(aggregate);
   }
-
   protected AggregateEntity(DomainEvent @event)
   {
-    AggregateId = @event.AggregateId.Value;
-
     CreatedBy = @event.ActorId.Value;
     CreatedOn = @event.OccurredOn.ToUniversalTime();
 
@@ -39,15 +33,14 @@ internal abstract class AggregateEntity : Entity
 
   public IEnumerable<ActorId> GetActorIds() => new ActorId[] { new(CreatedBy), new(UpdatedBy) };
 
-  protected void Update(AggregateRoot aggregate)
+  public void Update(AggregateRoot aggregate)
   {
     Version = aggregate.Version;
 
     UpdatedBy = aggregate.UpdatedBy.Value;
     UpdatedOn = aggregate.UpdatedOn.ToUniversalTime();
   }
-
-  protected void Update(DomainEvent @event)
+  public void Update(DomainEvent @event)
   {
     Version = @event.Version;
 

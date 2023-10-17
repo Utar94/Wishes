@@ -1,4 +1,5 @@
 ﻿using Logitar.Wishes.Application.Wishlists.Commands;
+using Logitar.Wishes.Application.Wishlists.Queries;
 using Logitar.Wishes.Contracts;
 using Logitar.Wishes.Contracts.Wishlists;
 using MediatR;
@@ -12,6 +13,11 @@ internal class ItemService : IItemService
   public ItemService(IMediator mediator)
   {
     _mediator = mediator;
+  }
+
+  public async Task<Item?> ReadAsync(string wishlistId, string itemId, CancellationToken cancellationToken)
+  {
+    return await _mediator.Send(new ReadItemQuery(wishlistId, itemId), cancellationToken);
   }
 
   public async Task<AcceptedCommand> RemoveAsync(string wishlistId, string itemId, CancellationToken cancellationToken)

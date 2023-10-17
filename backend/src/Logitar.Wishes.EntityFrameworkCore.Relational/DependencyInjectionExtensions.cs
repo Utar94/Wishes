@@ -27,7 +27,9 @@ public static class DependencyInjectionExtensions
 
   private static IServiceCollection AddQueriers(this IServiceCollection services)
   {
-    return services.AddScoped<IWishlistQuerier, WishlistQuerier>();
+    return services
+      .AddScoped<IItemQuerier, ItemQuerier>()
+      .AddScoped<IWishlistQuerier, WishlistQuerier>();
   }
 
   private static IServiceCollection AddRepositories(this IServiceCollection services)

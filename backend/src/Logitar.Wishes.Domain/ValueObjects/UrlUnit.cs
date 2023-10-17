@@ -5,6 +5,8 @@ namespace Logitar.Wishes.Domain.ValueObjects;
 
 public record UrlUnit
 {
+  public const int MaximumLength = 2048;
+
   public Uri Uri { get; }
   public string Value => Uri.ToString();
 

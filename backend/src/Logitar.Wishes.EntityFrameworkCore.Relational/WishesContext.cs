@@ -10,6 +10,7 @@ public class WishesContext : DbContext
   }
 
   internal DbSet<ActorEntity> Actors { get; private set; }
+  internal DbSet<ItemEntity> Items { get; private set; }
   internal DbSet<WishlistEntity> Wishlists { get; private set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)

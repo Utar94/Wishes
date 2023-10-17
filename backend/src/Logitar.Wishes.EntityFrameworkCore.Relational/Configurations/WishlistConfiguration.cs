@@ -1,5 +1,4 @@
-﻿using Logitar.Wishes.Domain.Validators;
-using Logitar.Wishes.Domain.ValueObjects;
+﻿using Logitar.Wishes.Domain.ValueObjects;
 using Logitar.Wishes.EntityFrameworkCore.Relational.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -19,6 +18,6 @@ internal class WishlistConfiguration : AggregateConfiguration<WishlistEntity>, I
     builder.HasIndex(x => x.ItemCount);
 
     builder.Property(x => x.DisplayName).HasMaxLength(DisplayNameUnit.MaximumLength);
-    builder.Property(x => x.PictureUrl).HasMaxLength(UrlValidator.MaximumLength);
+    builder.Property(x => x.PictureUrl).HasMaxLength(UrlUnit.MaximumLength);
   }
 }
