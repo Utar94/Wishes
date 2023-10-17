@@ -1,6 +1,7 @@
 ﻿using Logitar.Wishes.Application.Wishlists.Commands;
 using Logitar.Wishes.Application.Wishlists.Queries;
 using Logitar.Wishes.Contracts;
+using Logitar.Wishes.Contracts.Search;
 using Logitar.Wishes.Contracts.Wishlists;
 using MediatR;
 
@@ -28,6 +29,11 @@ internal class ItemService : IItemService
   public async Task<AcceptedCommand> SaveAsync(string wishlistId, SaveItemPayload payload, string? itemId, CancellationToken cancellationToken)
   {
     return await _mediator.Send(new SaveItemCommand(wishlistId, payload, itemId), cancellationToken);
+  }
+
+  public async Task<SearchResults<Item>> SearchAsync(SearchItemsPayload payload, CancellationToken cancellationToken)
+  {
+    return await _mediator.Send(new SearchItemsQuery(payload), cancellationToken);
   }
 
   public async Task<AcceptedCommand> UpdateAsync(string wishlistId, string itemId, UpdateItemPayload payload, CancellationToken cancellationToken)

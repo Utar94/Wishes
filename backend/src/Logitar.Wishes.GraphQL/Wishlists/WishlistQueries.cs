@@ -1,6 +1,5 @@
 ﻿using GraphQL;
 using GraphQL.Types;
-using Logitar.Portal.GraphQL.Wishlists;
 using Logitar.Wishes.Contracts.Constants;
 using Logitar.Wishes.Contracts.Wishlists;
 using Logitar.Wishes.GraphQL.Extensions;

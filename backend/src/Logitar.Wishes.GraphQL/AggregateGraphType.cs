@@ -1,29 +1,12 @@
-﻿using GraphQL.Types;
-using Logitar.Wishes.Contracts;
-using Logitar.Wishes.GraphQL.Actors;
+﻿using Logitar.Wishes.Contracts;
 
 namespace Logitar.Wishes.GraphQL;
 
-internal abstract class AggregateGraphType<T> : ObjectGraphType<T> where T : Aggregate
+internal abstract class AggregateGraphType<T> : MetadataGraphType<T> where T : Aggregate
 {
-  protected AggregateGraphType(string? description = null)
+  protected AggregateGraphType(string? description = null) : base(description)
   {
-    Name = typeof(T).Name;
-    Description = description;
-
     Field(x => x.Id)
       .Description("The unique identifier of the resource.");
-    Field(x => x.Version)
-      .Description("The version of the resource.");
-
-    Field(x => x.CreatedBy, type: typeof(NonNullGraphType<ActorGraphType>))
-      .Description("The actor who created the resource.");
-    Field(x => x.CreatedOn)
-      .Description("The date and time when the resource was created.");
-
-    Field(x => x.UpdatedBy, type: typeof(NonNullGraphType<ActorGraphType>))
-      .Description("The actor who updated the resource lastly.");
-    Field(x => x.UpdatedOn)
-      .Description("The date and time when the resource was updated lastly.");
   }
 }

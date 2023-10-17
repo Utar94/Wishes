@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Logitar.Wishes.Domain.Extensions;
-using System.Net.Mime;
 
 namespace Logitar.Wishes.Domain.Wishlists;
 

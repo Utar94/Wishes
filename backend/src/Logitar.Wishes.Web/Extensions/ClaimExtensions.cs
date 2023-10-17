@@ -3,7 +3,6 @@ using Logitar.Portal.Contracts.Roles;
 using Logitar.Portal.Contracts.Sessions;
 using Logitar.Portal.Contracts.Users;
 using Logitar.Security.Claims;
-using System.Security.Claims;
 
 namespace Logitar.Wishes.Web.Extensions;
 

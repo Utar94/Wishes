@@ -1,7 +1,6 @@
 ﻿using Logitar.EventSourcing;
 using Logitar.Wishes.Domain.Wishlists;
 using Logitar.Wishes.Domain.Wishlists.Events;
-using System.Text.Json;
 
 namespace Logitar.Wishes.EntityFrameworkCore.Relational.Entities;
 
@@ -26,9 +25,6 @@ internal class ItemEntity : Entity, IMetadata
   public byte? PriceCategory { get; private set; }
   public string? ContentText { get; private set; }
   public string? ContentType { get; private set; }
-
-  //public string? Gallery { get; private set; }
-  //public string? Links { get; private set; }
   public List<string> Gallery { get; private set; } = new();
   public string? GallerySerialized
   {

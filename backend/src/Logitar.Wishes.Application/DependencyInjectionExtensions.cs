@@ -17,6 +17,8 @@ public static class DependencyInjectionExtensions
 
   private static IServiceCollection AddApplicationServices(this IServiceCollection services)
   {
-    return services.AddTransient<IWishlistService, WishlistService>();
+    return services
+      .AddTransient<IItemService, ItemService>()
+      .AddTransient<IWishlistService, WishlistService>();
   }
 }

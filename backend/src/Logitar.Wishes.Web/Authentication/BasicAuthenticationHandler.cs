@@ -6,9 +6,6 @@ using Logitar.Wishes.Web.Settings;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
-using System.Security.Claims;
-using System.Text;
-using System.Text.Encodings.Web;
 
 namespace Logitar.Wishes.Web.Authentication;
 

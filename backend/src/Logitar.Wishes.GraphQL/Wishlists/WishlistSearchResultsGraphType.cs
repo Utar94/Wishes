@@ -1,8 +1,7 @@
 ﻿using Logitar.Wishes.Contracts.Wishlists;
 using Logitar.Wishes.GraphQL.Search;
-using Logitar.Wishes.GraphQL.Wishlists;
 
-namespace Logitar.Portal.GraphQL.Wishlists;
+namespace Logitar.Wishes.GraphQL.Wishlists;
 
 internal class WishlistSearchResultsGraphType : SearchResultsGraphType<WishlistGraphType, Wishlist>
 {

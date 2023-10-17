@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
 using Logitar.Wishes.Contracts.Wishlists;
 
-namespace Logitar.Portal.GraphQL.Wishlists;
+namespace Logitar.Wishes.GraphQL.Wishlists;
 
 internal class WishlistSortGraphType : EnumerationGraphType<WishlistSort>
 {
