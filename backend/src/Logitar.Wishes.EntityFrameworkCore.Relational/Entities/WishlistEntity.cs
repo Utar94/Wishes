@@ -13,7 +13,7 @@ internal class WishlistEntity : AggregateEntity
   public int ItemCount { get; private set; }
   //public List<Item> Items { get; set; } = new(); // TODO(fpion): wishlist items
 
-  public WishlistEntity(WishlistAggregate wishlist) : base()
+  public WishlistEntity(WishlistAggregate wishlist) : base(wishlist)
   {
     Synchronize(wishlist);
   }
@@ -29,8 +29,10 @@ internal class WishlistEntity : AggregateEntity
 
   public void Synchronize(WishlistAggregate wishlist)
   {
+    Update(wishlist);
+
     DisplayName = wishlist.DisplayName.Value;
-    PictureUrl = wishlist.PictureUrl?.ToString();
+    PictureUrl = wishlist.PictureUrl?.Value;
   }
 
   public void Update(WishlistUpdatedEvent @event)
@@ -43,7 +45,7 @@ internal class WishlistEntity : AggregateEntity
     }
     if (@event.PictureUrl != null)
     {
-      PictureUrl = @event.PictureUrl.Value?.ToString();
+      PictureUrl = @event.PictureUrl.Value?.Value;
     }
   }
 }

@@ -34,7 +34,7 @@ internal class UpdateWishlistCommandHandler : CommandHandler, IRequestHandler<Up
     }
     if (payload.PictureUrl != null)
     {
-      wishlist.PictureUrl = string.IsNullOrWhiteSpace(payload.PictureUrl.Value) ? null : new Uri(payload.PictureUrl.Value.Trim());
+      wishlist.PictureUrl = UrlUnit.TryCreate(payload.PictureUrl.Value);
     }
 
     wishlist.Update(ApplicationContext.ActorId);

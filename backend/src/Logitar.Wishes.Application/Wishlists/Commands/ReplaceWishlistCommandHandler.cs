@@ -37,7 +37,7 @@ internal class ReplaceWishlistCommandHandler : CommandHandler, IRequestHandler<R
     {
       wishlist.DisplayName = displayName;
     }
-    Uri? pictureUrl = string.IsNullOrWhiteSpace(payload.PictureUrl) ? null : new(payload.PictureUrl.Trim());
+    UrlUnit? pictureUrl = UrlUnit.TryCreate(payload.PictureUrl);
     if (reference == null || pictureUrl != reference.PictureUrl)
     {
       wishlist.PictureUrl = pictureUrl;

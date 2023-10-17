@@ -7,6 +7,8 @@ namespace Logitar.Wishes.Domain.Wishlists;
 
 public class WishlistAggregate : AggregateRoot
 {
+  private readonly Dictionary<ItemId, ItemUnit> _items = new();
+
   private WishlistUpdatedEvent _updated = new();
 
   public new WishlistId Id => new(base.Id);
@@ -24,19 +26,21 @@ public class WishlistAggregate : AggregateRoot
       }
     }
   }
-  private Uri? _pictureUrl = null;
-  public Uri? PictureUrl
+  private UrlUnit? _pictureUrl = null;
+  public UrlUnit? PictureUrl
   {
     get => _pictureUrl;
     set
     {
       if (value != _pictureUrl)
       {
-        _updated.PictureUrl = new Modification<Uri>(value);
+        _updated.PictureUrl = new Modification<UrlUnit>(value);
         _pictureUrl = value;
       }
     }
   }
+
+  public IReadOnlyDictionary<ItemId, ItemUnit> Items => _items.AsReadOnly();
 
   public WishlistAggregate(AggregateId id) : base(id)
   {
@@ -49,6 +53,24 @@ public class WishlistAggregate : AggregateRoot
   protected virtual void Apply(WishlistCreatedEvent @event) => _displayName = @event.DisplayName;
 
   public void Delete(ActorId actorId = default) => ApplyChange(new WishlistDeletedEvent(actorId));
+
+  public void RemoveItem(ItemId id, ActorId actorId = default)
+  {
+    if (_items.ContainsKey(id))
+    {
+      ApplyChange(new WishlistItemRemovedEvent(actorId, id));
+    }
+  }
+  protected virtual void Apply(WishlistItemRemovedEvent @event) => _items.Remove(@event.ItemId);
+
+  public void SetItem(ItemId id, ItemUnit item, ActorId actorId = default)
+  {
+    if (!_items.TryGetValue(id, out ItemUnit? existingItem) || existingItem != item)
+    {
+      ApplyChange(new WishlistItemSavedEvent(actorId, id, item));
+    }
+  }
+  protected virtual void Apply(WishlistItemSavedEvent @event) => _items[@event.ItemId] = @event.Item;
 
   public void Update(ActorId actorId = default)
   {

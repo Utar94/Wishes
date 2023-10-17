@@ -8,7 +8,7 @@ namespace Logitar.Wishes.Domain.Wishlists.Events;
 public record WishlistUpdatedEvent : DomainEvent, INotification
 {
   public DisplayNameUnit? DisplayName { get; set; }
-  public Modification<Uri>? PictureUrl { get; set; }
+  public Modification<UrlUnit>? PictureUrl { get; set; }
 
   public bool HasChanges => DisplayName != null || PictureUrl != null;
 }

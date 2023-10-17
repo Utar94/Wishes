@@ -16,6 +16,17 @@ internal abstract class AggregateEntity : Entity
   protected AggregateEntity()
   {
   }
+
+  protected AggregateEntity(AggregateRoot aggregate)
+  {
+    AggregateId = aggregate.Id.Value;
+
+    CreatedBy = aggregate.CreatedBy.Value;
+    CreatedOn = aggregate.CreatedOn.ToUniversalTime();
+
+    Update(aggregate);
+  }
+
   protected AggregateEntity(DomainEvent @event)
   {
     AggregateId = @event.AggregateId.Value;
@@ -27,6 +38,14 @@ internal abstract class AggregateEntity : Entity
   }
 
   public IEnumerable<ActorId> GetActorIds() => new ActorId[] { new(CreatedBy), new(UpdatedBy) };
+
+  protected void Update(AggregateRoot aggregate)
+  {
+    Version = aggregate.Version;
+
+    UpdatedBy = aggregate.UpdatedBy.Value;
+    UpdatedOn = aggregate.UpdatedOn.ToUniversalTime();
+  }
 
   protected void Update(DomainEvent @event)
   {
