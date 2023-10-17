@@ -1,6 +1,6 @@
 # Wishes
 
-TODO
+Gift wishlist Web API.
 
 ## Dependencies
 

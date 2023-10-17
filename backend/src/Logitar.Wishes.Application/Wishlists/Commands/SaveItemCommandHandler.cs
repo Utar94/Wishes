@@ -44,10 +44,14 @@ internal class SaveItemCommandHandler : CommandHandler, IRequestHandler<SaveItem
     SummaryUnit? summary = SummaryUnit.TryCreate(payload.Summary);
     UrlUnit? pictureUrl = UrlUnit.TryCreate(payload.PictureUrl);
 
+    byte rank = payload.Rank;
     PriceUnit? price = payload.Price == null ? null : new(payload.Price.Minimum, payload.Price.Maximum);
     ContentsUnit? contents = payload.Contents == null ? null : new(payload.Contents.Text, payload.Contents.Type);
 
-    return new ItemUnit(displayName, summary, pictureUrl, price, contents);
+    HashSet<UrlUnit> gallery = payload.Gallery.Select(value => new UrlUnit(value)).ToHashSet();
+    HashSet<UrlUnit> links = payload.Links.Select(value => new UrlUnit(value)).ToHashSet();
+
+    return new ItemUnit(displayName, summary, pictureUrl, rank, price, contents, gallery, links);
   }
 
   private static ItemId ResolveItemId(SaveItemPayload payload, WishlistAggregate wishlist, string? itemId, string propertyName)

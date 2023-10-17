@@ -19,14 +19,16 @@ internal class SaveItemPayloadValidator : AbstractValidator<SaveItemPayload>
       () => RuleFor(x => x.PictureUrl!).SetValidator(new UrlValidator())
     );
 
-    // TODO(fpion): Price
+    When(x => x.Price != null,
+      () => RuleFor(x => x.Price!).SetValidator(new PricePayloadValidator())
+    );
 
-    // TODO(fpion): Rank/Priority
+    When(x => x.Contents != null,
+      () => RuleFor(x => x.Contents!).SetValidator(new ContentsPayloadValidator())
+    );
 
-    // TODO(fpion): Contents
+    RuleForEach(x => x.Gallery).SetValidator(new UrlValidator());
 
-    // TODO(fpion): Gallery
-
-    // TODO(fpion): Links
+    RuleForEach(x => x.Links).SetValidator(new UrlValidator());
   }
 }

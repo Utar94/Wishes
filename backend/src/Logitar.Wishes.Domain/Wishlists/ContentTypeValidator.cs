@@ -4,7 +4,7 @@ using System.Net.Mime;
 
 namespace Logitar.Wishes.Domain.Wishlists;
 
-internal class ContentTypeValidator : AbstractValidator<string>
+public class ContentTypeValidator : AbstractValidator<string>
 {
   private readonly HashSet<string> _validTypes = new(new string[]
   {

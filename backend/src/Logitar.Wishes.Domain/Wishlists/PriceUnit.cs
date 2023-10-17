@@ -13,11 +13,7 @@ public record PriceUnit
     {
       throw new ArgumentOutOfRangeException(nameof(minimum), "The value must be superior to 0.");
     }
-    if (maximum <= 0)
-    {
-      throw new ArgumentOutOfRangeException(nameof(maximum), "The value must be superior to 0.");
-    }
-    if (minimum > maximum)
+    if (maximum < minimum)
     {
       throw new ArgumentOutOfRangeException(nameof(maximum), "The maximum price must be superior or equal to the minimum price.");
     }
