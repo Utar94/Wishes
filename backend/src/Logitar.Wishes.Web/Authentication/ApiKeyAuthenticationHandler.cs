@@ -33,7 +33,7 @@ internal class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthent
         try
         {
           ApiKey apiKey = _cacheService.GetApiKey(value) ?? await _apiKeyService.AuthenticateAsync(value);
-          _cacheService.SetApiKey(value, apiKey); // TODO(fpion): secure caching
+          _cacheService.SetApiKey(value, apiKey);
 
           Context.SetApiKey(apiKey);
 

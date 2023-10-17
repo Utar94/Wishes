@@ -3,6 +3,7 @@ using Logitar.Portal.Contracts.ApiKeys;
 using Logitar.Portal.Contracts.Users;
 using Logitar.Wishes.Application.Caching;
 using Logitar.Wishes.Contracts.Actors;
+using Logitar.Wishes.Infrastructure.Security;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Logitar.Wishes.Infrastructure.Caching;
@@ -21,13 +22,35 @@ internal class CacheService : ICacheService
   private static string GetActorKey(string id) => GetActorKey(new ActorId(id));
   private static string GetActorKey(ActorId id) => $"Actor:Id:{id}";
 
-  public ApiKey? GetApiKey(string xApiKey) => GetItem<ApiKey>(GetApiKeyKey(xApiKey));
-  public void SetApiKey(string xApiKey, ApiKey apiKey) => SetItem(GetApiKeyKey(xApiKey), apiKey, TimeSpan.FromMinutes(1));
-  private static string GetApiKeyKey(string xApiKey) => $"X-API-Key:{xApiKey}";
+  public ApiKey? GetApiKey(string xApiKey)
+  {
+    XApiKey instance = XApiKey.Decode(xApiKey);
+    ProtectedCache<ApiKey>? cached = GetItem<ProtectedCache<ApiKey>>(GetApiKeyKey(instance.Id));
 
-  public User? GetUser(string credentials) => GetItem<User>(GetUserKey(credentials));
-  public void SetUser(string credentials, User user) => SetItem(GetUserKey(credentials), user, TimeSpan.FromMinutes(1));
-  private static string GetUserKey(string credentials) => $"User:Credentials:{credentials}";
+    return cached?.GetValue(instance.Secret);
+  }
+  public void SetApiKey(string xApiKey, ApiKey apiKey)
+  {
+    XApiKey instance = XApiKey.Decode(xApiKey);
+    ProtectedCache<ApiKey> cached = new(apiKey, instance.Secret);
+
+    SetItem(GetApiKeyKey(instance.Id), cached, TimeSpan.FromMinutes(1));
+  }
+  private static string GetApiKeyKey(string id) => $"ApiKey:Id:{id}";
+
+  public User? GetUser(string username, string password)
+  {
+    ProtectedCache<User>? cached = GetItem<ProtectedCache<User>>(GetUserKey(username));
+
+    return cached?.GetValue(password);
+  }
+  public void SetUser(string username, string password, User user)
+  {
+    ProtectedCache<User> cached = new(user, password);
+
+    SetItem(GetUserKey(username), cached, TimeSpan.FromMinutes(1));
+  }
+  private static string GetUserKey(string username) => $"User:Username:{username}";
 
   private T? GetItem<T>(object key) => _cache.TryGetValue(key, out T? value) ? value : default;
   private void SetItem(object key, object value, TimeSpan expiration) => _cache.Set(key, value, expiration);

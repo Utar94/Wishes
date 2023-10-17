@@ -48,17 +48,19 @@ internal class BasicAuthenticationHandler : AuthenticationHandler<BasicAuthentic
           {
             return AuthenticateResult.Fail($"The {Schemes.Basic} credentials are not valid: '{credentials}'.");
           }
+          string username = credentials[..index];
+          string password = credentials[(index + 1)..];
 
           try
           {
             AuthenticateUserPayload payload = new()
             {
               Realm = _identitySettings.Realm,
-              UniqueName = credentials[..index],
-              Password = credentials[(index + 1)..]
+              UniqueName = username,
+              Password = password
             };
-            User user = _cacheService.GetUser(credentials) ?? await _userService.AuthenticateAsync(payload);
-            _cacheService.SetUser(credentials, user); // TODO(fpion): secure caching
+            User user = _cacheService.GetUser(username, password) ?? await _userService.AuthenticateAsync(payload);
+            _cacheService.SetUser(username, password, user);
 
             Context.SetUser(user);
 

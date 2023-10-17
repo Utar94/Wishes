@@ -13,6 +13,6 @@ public interface ICacheService
   ApiKey? GetApiKey(string xApiKey);
   void SetApiKey(string xApiKey, ApiKey apiKey);
 
-  User? GetUser(string credentials);
-  void SetUser(string credentials, User user);
+  User? GetUser(string username, string password);
+  void SetUser(string username, string password, User user);
 }
