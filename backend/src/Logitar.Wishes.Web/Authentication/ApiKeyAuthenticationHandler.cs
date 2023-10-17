@@ -1,4 +1,5 @@
 ﻿using Logitar.Portal.Contracts.ApiKeys;
+using Logitar.Wishes.Application.Caching;
 using Logitar.Wishes.Contracts.Constants;
 using Logitar.Wishes.Web.Extensions;
 using Microsoft.AspNetCore.Authentication;
@@ -12,12 +13,14 @@ namespace Logitar.Wishes.Web.Authentication;
 internal class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthenticationOptions>
 {
   private readonly IApiKeyService _apiKeyService;
+  private readonly ICacheService _cacheService;
 
   public ApiKeyAuthenticationHandler(IOptionsMonitor<ApiKeyAuthenticationOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock,
-    IApiKeyService apiKeyService)
+    IApiKeyService apiKeyService, ICacheService cacheService)
       : base(options, logger, encoder, clock)
   {
     _apiKeyService = apiKeyService;
+    _cacheService = cacheService;
   }
 
   protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
@@ -29,7 +32,8 @@ internal class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthent
       {
         try
         {
-          ApiKey apiKey = await _apiKeyService.AuthenticateAsync(value);
+          ApiKey apiKey = _cacheService.GetApiKey(value) ?? await _apiKeyService.AuthenticateAsync(value);
+          _cacheService.SetApiKey(value, apiKey); // TODO(fpion): secure caching
 
           Context.SetApiKey(apiKey);
 

@@ -35,6 +35,10 @@ public static class DependencyInjectionExtensions
         .RequireAuthenticatedUser()
         .AddRequirements(new RoleAuthorizationRequirement(identitySettings.Roles.ReadWishlists))
         .Build());
+      options.AddPolicy(Policies.CanShareWishlists, new AuthorizationPolicyBuilder(Schemes.All)
+        .RequireAuthenticatedUser()
+        .AddRequirements(new RoleAuthorizationRequirement(identitySettings.Roles.ShareWishlists))
+        .Build());
       options.AddPolicy(Policies.CanWriteWishlists, new AuthorizationPolicyBuilder(Schemes.All)
         .RequireAuthenticatedUser()
         .AddRequirements(new RoleAuthorizationRequirement(identitySettings.Roles.WriteWishlists))

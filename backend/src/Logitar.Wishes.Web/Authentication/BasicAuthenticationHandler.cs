@@ -1,4 +1,5 @@
 ﻿using Logitar.Portal.Contracts.Users;
+using Logitar.Wishes.Application.Caching;
 using Logitar.Wishes.Contracts.Constants;
 using Logitar.Wishes.Web.Extensions;
 using Logitar.Wishes.Web.Settings;
@@ -13,13 +14,15 @@ namespace Logitar.Wishes.Web.Authentication;
 
 internal class BasicAuthenticationHandler : AuthenticationHandler<BasicAuthenticationOptions>
 {
+  private readonly ICacheService _cacheService;
   private readonly IdentitySettings _identitySettings;
   private readonly IUserService _userService;
 
   public BasicAuthenticationHandler(IOptionsMonitor<BasicAuthenticationOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock,
-    IdentitySettings identitySettings, IUserService userService)
+    ICacheService cacheService, IdentitySettings identitySettings, IUserService userService)
       : base(options, logger, encoder, clock)
   {
+    _cacheService = cacheService;
     _identitySettings = identitySettings;
     _userService = userService;
   }
@@ -54,7 +57,8 @@ internal class BasicAuthenticationHandler : AuthenticationHandler<BasicAuthentic
               UniqueName = credentials[..index],
               Password = credentials[(index + 1)..]
             };
-            User user = await _userService.AuthenticateAsync(payload);
+            User user = _cacheService.GetUser(credentials) ?? await _userService.AuthenticateAsync(payload);
+            _cacheService.SetUser(credentials, user); // TODO(fpion): secure caching
 
             Context.SetUser(user);
 
