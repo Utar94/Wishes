@@ -26,6 +26,7 @@ internal class WishlistQuerier : IWishlistQuerier
   public async Task<Wishlist?> ReadAsync(string id, CancellationToken cancellationToken)
   {
     WishlistEntity? wishlist = await _wishlists.AsNoTracking()
+      .Include(x => x.Items)
       .SingleOrDefaultAsync(x => x.AggregateId == id, cancellationToken);
 
     return wishlist == null ? null : await MapAsync(wishlist, cancellationToken);

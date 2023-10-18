@@ -18,11 +18,11 @@ internal class ItemEntity : Entity, IMetadata
   public string? PictureUrl { get; private set; }
 
   public byte Rank { get; private set; }
-  public byte RankCategory { get; private set; }
+  public byte RankCategory { get; set; }
   public double? AveragePrice { get; private set; }
   public double? MinimumPrice { get; private set; }
   public double? MaximumPrice { get; private set; }
-  public byte? PriceCategory { get; private set; }
+  public byte? PriceCategory { get; set; }
   public string? ContentText { get; private set; }
   public string? ContentType { get; private set; }
   public List<string> Gallery { get; private set; } = new();
@@ -82,17 +82,18 @@ internal class ItemEntity : Entity, IMetadata
   {
   }
 
-  public IEnumerable<ActorId> GetActorIds()
+  public IEnumerable<ActorId> GetActorIds() => GetActorIds(includeWishlist: true);
+  public IEnumerable<ActorId> GetActorIds(bool includeWishlist)
   {
-    List<ActorId> ids = new(capacity: 4)
+    List<ActorId> ids = new(capacity: 2 + 2)
     {
       new(CreatedBy),
       new(UpdatedBy)
     };
 
-    if (Wishlist != null)
+    if (includeWishlist && Wishlist != null)
     {
-      ids.AddRange(Wishlist.GetActorIds());
+      ids.AddRange(Wishlist.GetActorIds(includeItems: false));
     }
 
     return ids;
@@ -112,11 +113,15 @@ internal class ItemEntity : Entity, IMetadata
     PictureUrl = item.PictureUrl?.Value;
 
     Rank = item.Rank;
-    // TODO(fpion): RankCategory
+
     AveragePrice = item.Price?.Average;
     MinimumPrice = item.Price?.Minimum;
     MaximumPrice = item.Price?.Maximum;
-    // TODO(fpion): PriceCategory
+    if (item.Price == null)
+    {
+      PriceCategory = null;
+    }
+
     ContentText = item.Contents?.Text;
     ContentType = item.Contents?.Type;
 

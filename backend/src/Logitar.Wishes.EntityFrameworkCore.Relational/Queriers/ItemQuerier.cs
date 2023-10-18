@@ -39,12 +39,13 @@ internal class ItemQuerier : IItemQuerier
 
     IQueryBuilder builder = _sqlHelper.QueryFrom(Db.Items.Table)
       .Join(Db.Wishlists.WishlistId, Db.Items.WishlistId)
-      .Where(Db.Wishlists.WishlistId, Operators.IsEqualTo(wishlistId.Value))
+      .Where(Db.Wishlists.AggregateId, Operators.IsEqualTo(wishlistId.Value))
       .SelectAll(Db.Items.Table);
     _sqlHelper.ApplyTextSearch(builder, payload.Id, Db.Items.Id);
     _sqlHelper.ApplyTextSearch(builder, payload.Search, Db.Items.DisplayName, Db.Items.Summary);
 
-    IQueryable<ItemEntity> query = _items.FromQuery(builder).AsNoTracking();
+    IQueryable<ItemEntity> query = _items.FromQuery(builder).AsNoTracking()
+      .Include(x => x.Wishlist);
 
     long total = await query.LongCountAsync(cancellationToken);
 

@@ -31,7 +31,7 @@ internal abstract class AggregateEntity : Entity, IMetadata
     Update(@event);
   }
 
-  public IEnumerable<ActorId> GetActorIds() => new ActorId[] { new(CreatedBy), new(UpdatedBy) };
+  public virtual IEnumerable<ActorId> GetActorIds() => new ActorId[] { new(CreatedBy), new(UpdatedBy) };
 
   public void Update(AggregateRoot aggregate)
   {

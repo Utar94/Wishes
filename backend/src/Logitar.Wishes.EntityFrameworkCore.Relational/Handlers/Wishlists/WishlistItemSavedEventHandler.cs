@@ -22,6 +22,7 @@ internal class WishlistItemSavedEventHandler : INotificationHandler<WishlistItem
     long expectedVersion = @event.Version - 1;
 
     WishlistEntity? wishlist = await _context.Wishlists
+      .Include(x => x.Items)
       .SingleOrDefaultAsync(x => x.AggregateId == @event.AggregateId.Value, cancellationToken);
     if (wishlist == null || wishlist.Version < expectedVersion)
     {

@@ -34,7 +34,8 @@ internal class Mapper
     PictureUrl = source.PictureUrl
   };
 
-  public Item ToItem(ItemEntity source)
+  public Item ToItem(ItemEntity source) => ToItem(source, mapWishlist: true);
+  public Item ToItem(ItemEntity source, bool mapWishlist)
   {
     Item destination = new()
     {
@@ -67,9 +68,9 @@ internal class Mapper
       };
     }
 
-    if (source.Wishlist != null)
+    if (mapWishlist && source.Wishlist != null)
     {
-      destination.Wishlist = ToWishlist(source.Wishlist);
+      destination.Wishlist = ToWishlist(source.Wishlist, mapItems: false);
     }
 
     MapMetadata(source, destination);
@@ -77,7 +78,8 @@ internal class Mapper
     return destination;
   }
 
-  public Wishlist ToWishlist(WishlistEntity source)
+  public Wishlist ToWishlist(WishlistEntity source) => ToWishlist(source, mapItems: true);
+  public Wishlist ToWishlist(WishlistEntity source, bool mapItems)
   {
     Wishlist destination = new()
     {
@@ -85,6 +87,11 @@ internal class Mapper
       PictureUrl = source.PictureUrl,
       ItemCount = source.ItemCount
     };
+
+    if (mapItems)
+    {
+      destination.Items = source.Items.Select(item => ToItem(item, mapWishlist: false)).ToList();
+    }
 
     MapAggregate(source, destination);
 

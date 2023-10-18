@@ -21,6 +21,9 @@ public static class DependencyInjectionExtensions
 
   private static IEnumerable<JsonConverter> GetJsonConverters() => new JsonConverter[]
   {
-    new DisplayNameUnitConverter()
+    new DisplayNameUnitConverter(),
+    new ItemIdConverter(),
+    new SummaryUnitConverter(),
+    new UrlUnitConverter()
   };
 }
