@@ -1,10 +1,16 @@
-name: Build Main Branch
+name: Frontend Build
 
 on:
   push:
     branches:
       - main
+    paths:
+      - "frontend/**"
   workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./frontend
 
 jobs:
   build:
@@ -13,8 +19,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          cd ./frontend
           npm ci
           npm run build
-          cd ../backend
-          docker build . -t francispion.azurecr.io/wishes:${{ github.sha }} -f src/Logitar.Wishes/Dockerfile

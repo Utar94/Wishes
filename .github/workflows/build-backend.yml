@@ -1,0 +1,21 @@
+name: Backend Build
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**"
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./backend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build . -t francispion.azurecr.io/wishes:${{ github.sha }} -f src/Logitar.Wishes/Dockerfile
