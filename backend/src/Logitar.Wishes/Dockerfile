@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["Logitar.Wishes/Logitar.Wishes.csproj", "Logitar.Wishes/"]
-RUN dotnet restore "Logitar.Wishes/Logitar.Wishes.csproj"
+COPY ["src/Logitar.Wishes/Logitar.Wishes.csproj", "src/Logitar.Wishes/"]
+RUN dotnet restore "src/Logitar.Wishes/Logitar.Wishes.csproj"
 COPY . .
-WORKDIR "/src/Logitar.Wishes"
+WORKDIR "/src/src/Logitar.Wishes"
 RUN dotnet build "Logitar.Wishes.csproj" -c Release -o /app/build
 
 FROM build AS publish
