@@ -13,11 +13,13 @@ internal class Startup : StartupBase
 {
   private readonly IConfiguration _configuration;
   private readonly bool _enableOpenApi;
+  private readonly Version _version;
 
   public Startup(IConfiguration configuration)
   {
     _configuration = configuration;
     _enableOpenApi = configuration.GetValue<bool>("EnableOpenApi");
+    _version = new Version(configuration.GetValue<string>("Version") ?? string.Empty);
   }
 
   public override void ConfigureServices(IServiceCollection services)
@@ -32,7 +34,7 @@ internal class Startup : StartupBase
 
     if (_enableOpenApi)
     {
-      services.AddOpenApi();
+      services.AddOpenApi(_version);
     }
 
     string connectionString;
@@ -61,7 +63,7 @@ internal class Startup : StartupBase
   {
     if (_enableOpenApi)
     {
-      builder.UseOpenApi();
+      builder.UseOpenApi(_version);
     }
 
     if (_configuration.GetValue<bool>("UseGraphQLAltair"))

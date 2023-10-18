@@ -7,15 +7,14 @@ namespace Logitar.Wishes.Extensions;
 public static class OpenApiExtensions
 {
   private const string Title = "Wishes API";
-  private static readonly Version Version = new(1, 0, 0);
 
-  public static IServiceCollection AddOpenApi(this IServiceCollection services)
+  public static IServiceCollection AddOpenApi(this IServiceCollection services, Version version)
   {
     services.AddEndpointsApiExplorer();
     services.AddSwaggerGen(config =>
     {
       config.AddSecurity();
-      config.SwaggerDoc(name: $"v{Version.Major}", new OpenApiInfo
+      config.SwaggerDoc(name: $"v{version.Major}", new OpenApiInfo
       {
         Contact = new OpenApiContact
         {
@@ -30,19 +29,19 @@ public static class OpenApiExtensions
           Url = new Uri("https://github.com/Utar94/Wishes/blob/main/LICENSE", UriKind.Absolute)
         },
         Title = Title,
-        Version = $"v{Version}"
+        Version = $"v{version}"
       });
     });
 
     return services;
   }
 
-  public static void UseOpenApi(this IApplicationBuilder builder)
+  public static void UseOpenApi(this IApplicationBuilder builder, Version version)
   {
     builder.UseSwagger();
     builder.UseSwaggerUI(config => config.SwaggerEndpoint(
-      url: $"/swagger/v{Version.Major}/swagger.json",
-    name: $"{Title} v{Version}"
+      url: $"/swagger/v{version.Major}/swagger.json",
+    name: $"{Title} v{version}"
     ));
   }
 

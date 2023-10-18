@@ -1,0 +1,30 @@
+name: Deploy Production Backend
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./backend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/docker-login@v1
+        with:
+          login-server: francispion.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - run: |
+          docker build . -t francispion.azurecr.io/wishes-api:${{ github.sha }} -f src/Logitar.Wishes/Dockerfile
+          docker push francispion.azurecr.io/wishes-api:${{ github.sha }}
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'api-wishes'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_PRODUCTION }}
+          images: 'francispion.azurecr.io/wishes-api:${{ github.sha }}'
