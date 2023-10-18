@@ -16,3 +16,5 @@ jobs:
           cd ./frontend
           npm ci
           npm run build
+          cd ../backend
+          docker build . -t francispion.azurecr.io/wishes:${{ github.sha }} -f src/Logitar.Wishes/Dockerfile
