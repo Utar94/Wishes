@@ -18,6 +18,8 @@ internal abstract class AggregateEntity : Entity, IMetadata
   }
   protected AggregateEntity(AggregateRoot aggregate)
   {
+    AggregateId = aggregate.Id.Value;
+
     CreatedBy = aggregate.CreatedBy.Value;
     CreatedOn = aggregate.CreatedOn.ToUniversalTime();
 
@@ -25,6 +27,8 @@ internal abstract class AggregateEntity : Entity, IMetadata
   }
   protected AggregateEntity(DomainEvent @event)
   {
+    AggregateId = @event.AggregateId.Value;
+
     CreatedBy = @event.ActorId.Value;
     CreatedOn = @event.OccurredOn.ToUniversalTime();
 
