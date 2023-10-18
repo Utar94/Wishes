@@ -1,9 +1,9 @@
-name: Build Development branch
+name: Build Main Branch
 
 on:
   push:
     branches:
-      - dev
+      - main
   workflow_dispatch:
 
 jobs:
