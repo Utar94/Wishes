@@ -11,5 +11,6 @@ public record ItemSortOption : SortOption
   }
   public ItemSortOption(ItemSort field, bool isDescending = false) : base(field.ToString(), isDescending)
   {
+    Field = field;
   }
 }

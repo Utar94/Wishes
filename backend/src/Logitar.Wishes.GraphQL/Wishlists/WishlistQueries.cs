@@ -13,7 +13,7 @@ internal static class WishlistQueries
     root.Field<WishlistGraphType>("wishlist")
       .AuthorizeWithPolicy(Policies.CanReadWishlists)
       .Description("Retrieves a single wishlist.")
-      .Arguments(new QueryArgument<StringGraphType>() { Name = "id", Description = "The unique identifier of the wishlist." })
+      .Arguments(new QueryArgument<NonNullGraphType<StringGraphType>>() { Name = "id", Description = "The unique identifier of the wishlist." })
       .ResolveAsync(async context => await context.GetRequiredService<IWishlistService, object?>().ReadAsync(
         context.GetArgument<string>("id"),
         context.CancellationToken

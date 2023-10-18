@@ -11,5 +11,6 @@ public record WishlistSortOption : SortOption
   }
   public WishlistSortOption(WishlistSort field, bool isDescending = false) : base(field.ToString(), isDescending)
   {
+    Field = field;
   }
 }

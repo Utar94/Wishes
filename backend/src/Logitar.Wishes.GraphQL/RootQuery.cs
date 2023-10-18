@@ -9,6 +9,7 @@ internal class RootQuery : ObjectGraphType
   {
     Name = nameof(RootQuery);
 
+    ItemQueries.Register(this);
     WishlistQueries.Register(this);
   }
 }
