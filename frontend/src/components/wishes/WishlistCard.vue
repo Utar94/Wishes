@@ -16,7 +16,7 @@ const to = computed<RouteLocationRaw>(() => ({ name: "WishlistView", params: { i
 
 <template>
   <div>
-    <app-card :picture="wishlist.picture ?? '/img/guest.png'" :subtitle="t('wishes.items', wishlist.items?.length ?? 0)" :title="wishlist.displayName" :to="to">
+    <app-card :picture="wishlist.pictureUrl ?? '/img/guest.png'" :subtitle="t('wishes.items', wishlist.itemCount)" :title="wishlist.displayName" :to="to">
       <icon-button icon="fas fa-gifts" text="wishes.viewWishlist" :to="to" />
     </app-card>
   </div>

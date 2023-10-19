@@ -4,11 +4,12 @@
     "back": "Retour",
     "cancel": "Annuler",
     "close": "Vider",
-    "delete": "Supprimer"
+    "delete": "Supprimer",
+    "refresh": "Rafraîchir"
   },
   "brand": "Wishes",
   "by": "Par",
-  "copyright": "© Wishes {version} 2023.",
+  "copyright": "© Logitar {version} 2023.",
   "count": "Nombre de résultats",
   "custom": "Personnalisé",
   "customAttributes": {
@@ -79,7 +80,7 @@
       "title": "Succès !"
     },
     "warning": {
-      "signedOut": "Vous avez été déconnecté, veuillez vous reconnecter à votre compte.",
+      "signedOut": "Votre accès a expiré, veuillez fournir une nouvelle clé d’accès ou demander un nouveau lien d’accès.",
       "title": "Attention !"
     }
   },
