@@ -10,9 +10,9 @@ defaults:
     working-directory: ./backend
 
 jobs:
-  build:
+  build_and_deploy_job:
     runs-on: ubuntu-latest
-
+    name: Build & Deploy Job
     steps:
       - uses: actions/checkout@v4
       - uses: azure/docker-login@v1
@@ -20,11 +20,13 @@ jobs:
           login-server: francispion.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
-      - run: |
+      - name: Build & Push Docker image
+        run: |
           docker build . -t francispion.azurecr.io/wishes-api:${{ github.sha }} -f src/Logitar.Wishes/Dockerfile
           docker push francispion.azurecr.io/wishes-api:${{ github.sha }}
-      - uses: azure/webapps-deploy@v3
+      - name: Deploy Docker image
+        uses: azure/webapps-deploy@v3
         with:
-          app-name: 'api-wishes'
+          app-name: "api-wishes"
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_PRODUCTION }}
-          images: 'francispion.azurecr.io/wishes-api:${{ github.sha }}'
+          images: "francispion.azurecr.io/wishes-api:${{ github.sha }}"
