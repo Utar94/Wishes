@@ -44,6 +44,8 @@ onMounted(() => {
   const key = route.query.key?.toString();
   if (key) {
     account.signIn(key);
+  }
+  if (account.key) {
     refresh();
   }
 });
