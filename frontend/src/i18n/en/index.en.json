@@ -4,11 +4,12 @@
     "back": "Back",
     "cancel": "Cancel",
     "close": "Close",
-    "delete": "Delete"
+    "delete": "Delete",
+    "refresh": "Refresh"
   },
   "brand": "Wishes",
   "by": "By",
-  "copyright": "© Wishes {version} 2023.",
+  "copyright": "© Logitar {version} 2023.",
   "count": "Count",
   "custom": "Custom",
   "customAttributes": {
@@ -79,7 +80,7 @@
       "title": "Success!"
     },
     "warning": {
-      "signedOut": "You have been signed-out, please try sign-in to your account again.",
+      "signedOut": "Your access has expired, please provide a new access key or request a new access link.",
       "title": "Warning!"
     }
   },

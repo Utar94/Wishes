@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Logitar.Wishes.Application.Exceptions;
+using Logitar.Wishes.Application.Wishlists;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -9,6 +10,7 @@ internal class ExceptionHandlingFilter : ExceptionFilterAttribute
 {
   private static readonly Dictionary<Type, Func<ExceptionContext, IActionResult>> _handlers = new()
   {
+    [typeof(ItemNotFoundException)] = HandleItemNotFoundException,
     [typeof(ValidationException)] = HandleValidationException
   };
 
@@ -29,6 +31,11 @@ internal class ExceptionHandlingFilter : ExceptionFilterAttribute
       context.Result = new ConflictObjectResult(identifierAlreadyUsed.Failure);
       context.ExceptionHandled = true;
     }
+  }
+
+  private static IActionResult HandleItemNotFoundException(ExceptionContext context)
+  {
+    return new NotFoundObjectResult(((ItemNotFoundException)context.Exception).Failure);
   }
 
   private static IActionResult HandleValidationException(ExceptionContext context)

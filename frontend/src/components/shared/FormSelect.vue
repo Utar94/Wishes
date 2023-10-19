@@ -14,9 +14,9 @@ const props = withDefaults(
     id: string;
     label?: string;
     modelValue?: string;
+    name?: string;
     noLabel?: boolean;
     noState?: boolean;
-    name?: string;
     options: SelectOption[];
     placeholder?: string;
     required?: boolean;

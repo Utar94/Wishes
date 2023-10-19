@@ -1,23 +1,36 @@
+import type { Aggregate, Metadata } from "./aggregate";
+
 export type ContentType = "text/html" | "text/markdown" | "text/plain";
 
-export type Wish = {
-  id: string;
-  incomplete?: boolean;
-  gallery?: string[];
-  links?: string[];
-  picture: string;
-  price?: number[];
-  summary?: string;
-  title: string;
-  contents?: {
-    text: string;
-    type?: ContentType;
-  };
+export type Contents = {
+  text: string;
+  type: ContentType;
 };
 
-export type Wishlist = {
+export type Item = Metadata & {
   id: string;
   displayName: string;
-  picture?: string;
-  items?: Wish[];
+  summary?: string;
+  pictureUrl?: string;
+  rank: number;
+  rankCategory: number;
+  price?: Price;
+  contents?: Contents;
+  gallery: string[];
+  links: string[];
+  wishlist: Wishlist;
+};
+
+export type Price = {
+  average: number;
+  minimum: number;
+  maximum: number;
+  category: number;
+};
+
+export type Wishlist = Aggregate & {
+  displayName: string;
+  pictureUrl?: string;
+  itemCount: number;
+  items: Item[];
 };

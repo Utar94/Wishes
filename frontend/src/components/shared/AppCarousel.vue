@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref, onUpdated } from "vue";
 import { useI18n } from "vue-i18n";
-import { Carousel } from "bootstrap";
 
 import CarouselItem from "./CarouselItem.vue";
 import type { PictureOptions } from "@/types/components";
@@ -19,26 +17,16 @@ const props = withDefaults(
   }
 );
 
-const carousel = ref<Carousel>();
-
 function getAlt(picture: string | PictureOptions): string | undefined {
   return (typeof picture === "string" ? undefined : picture.alt) ?? props.alt;
 }
 function getSrc(picture: string | PictureOptions): string {
   return typeof picture === "string" ? picture : picture.src;
 }
-
-onUpdated(() => {
-  try {
-    carousel.value = new Carousel("#carouselExample"); // TODO(fpion): auto-riding not working
-  } catch (e: unknown) {
-    console.error(e); // TODO(fpion): handle
-  }
-});
 </script>
 
 <template>
-  <div :id="id" class="carousel slide">
+  <div :id="id" class="carousel slide" data-bs-ride="carousel">
     <div v-if="pictures.length > 1" class="carousel-indicators">
       <button
         v-for="(_, index) in pictures"

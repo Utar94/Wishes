@@ -1,6 +1,29 @@
 {
+  "accessKey": {
+    "label": "Clé d’accès",
+    "placeholder": "Collez votre clé d’accès"
+  },
   "externalLinks": "Liens externes",
+  "filters": "Filtres",
   "items": "{count} article | {count} articles",
+  "rank": {
+    "format": "Priorité : {rank}",
+    "label": "Priorité",
+    "options": {
+      "1": "❤️ Basse",
+      "2": "❤️❤️ Moyenne",
+      "3": "❤️❤️❤️ Élevée"
+    },
+    "placeholder": "❤️ / ❤️❤️ / ❤️❤️❤️ Toutes"
+  },
+  "sort": {
+    "options": {
+      "averagePrice": "Prix moyen",
+      "displayName": "Nom",
+      "rank": "Priorité",
+      "updatedOn": "Dernière modification"
+    }
+  },
   "title": "Liste de souhaits de {displayName}",
   "viewDetail": "Voir les détails",
   "viewWishlist": "Voir la liste de souhaits"

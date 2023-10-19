@@ -1,6 +1,6 @@
 # Wishes
 
-TODO
+Gift wishlist Web application.
 
 ## Recommended IDE Setup
 
