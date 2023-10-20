@@ -34,7 +34,7 @@ internal class CacheService : ICacheService
     XApiKey instance = XApiKey.Decode(xApiKey);
     ProtectedCache<ApiKey> cached = new(apiKey, instance.Secret);
 
-    SetItem(GetApiKeyKey(instance.Id), cached, TimeSpan.FromMinutes(1));
+    SetItem(GetApiKeyKey(instance.Id), cached, TimeSpan.FromMinutes(5));
   }
   private static string GetApiKeyKey(string id) => $"ApiKey:Id:{id}";
 
